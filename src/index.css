@@ -11,3 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* =========== */
+
+.game {
+  font: 14px 'Century Gothic', Futura, sans-serif;
+  margin: 20px;
+  min-height: 260px;
+}
+
+.game ol,
+.game ul {
+  padding-left: 30px;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.restart {
+  margin-top: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+  background: #ddd;
+}
+
+.game-info {
+  margin-left: 20px;
+  min-width: 190px;
+}

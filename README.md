@@ -5,6 +5,7 @@ useLocalStorageState hook
 Unit Test
 Integration Test
 Coverage
+Tailwind
 
 <!-- # Getting Started with Create React App
 
