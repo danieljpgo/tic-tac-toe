@@ -2,18 +2,18 @@ import { Children } from '../../../common/types';
 
 interface Props extends Children {
   disabled: boolean;
-  onClick: () => void;
+  onSelectStep: () => void;
 }
 
 const Step = (props: Props) => {
-  const { children = '', disabled, onClick } = props;
+  const { children, disabled, onSelectStep } = props;
 
   return (
     <li>
       <button
         type="button"
         disabled={disabled}
-        onClick={onClick}
+        onClick={onSelectStep}
       >
         {children}
       </button>

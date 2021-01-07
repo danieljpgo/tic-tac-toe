@@ -1,7 +1,8 @@
+import { History } from '../types';
 import Step from './Step';
 
 interface Props {
-  history: []; // @TODO add typing
+  history: History;
   currentStep: number;
   onSelectStep: (step: number) => void;
 }
@@ -13,8 +14,9 @@ const Steps = (props: Props) => {
     <ol>
       {history.map((_, step) => (
         <Step
+          key={step.toString()}
           disabled={currentStep === step}
-          onClick={() => onSelectStep(step)}
+          onSelectStep={() => onSelectStep(step)}
         >
           {step === 0 ? 'Go to game start' : `Go to move #${step} `}
           {step === currentStep && '(current)'}
