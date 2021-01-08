@@ -1,27 +1,27 @@
-import { Squares, Square } from './types';
+import { Board, Square } from './types';
 
-// @TODO Add documentation
+export function calculateStatus(winner: Square, board: Board, nextValue: Square) {
+  const winnerText = `Winner: ${winner}`;
+  const scratchText = 'Scratch: Cat\'s game';
+  const nextPlayerText = `Next player: ${nextValue}`;
 
-export function calculateStatus(winner: Square, squares: Squares, nextValue: Square) {
   if (winner) {
-    return `Winner: ${winner}`;
+    return winnerText;
   }
-  if (squares.every((value) => Boolean(value))) {
-    return 'Scratch: Cat\'s game';
-  }
-  return `Next player: ${nextValue}`;
+  return board.every((square) => Boolean(square))
+    ? scratchText
+    : nextPlayerText;
 }
 
-export function calculateNextValue(squares: Squares) {
-  const xSquaresCount = squares.filter((r) => r === 'X').length;
-  const oSquaresCount = squares.filter((r) => r === 'O').length;
-
+export function calculateNextValue(board: Board) {
+  const xSquaresCount = board.filter((r) => r === 'X').length;
+  const oSquaresCount = board.filter((r) => r === 'O').length;
   return oSquaresCount === xSquaresCount
     ? 'X'
     : 'O';
 }
 
-export function calculateWinner(squares: Squares) {
+export function calculateWinner(board: Board) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -33,14 +33,15 @@ export function calculateWinner(squares: Squares) {
     [2, 4, 6],
   ];
 
-  const [winner] = lines.map((value) => {
-    const [a, b, c] = value;
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-    return null;
-  })
-    .filter((value) => Boolean(value));
+  const [winner] = lines
+    .map((row) => {
+      const [a, b, c] = row;
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        return board[a];
+      }
+      return null;
+    })
+    .filter((square) => Boolean(square));
 
   return winner;
 }

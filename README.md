@@ -1,7 +1,6 @@
 TODO
 
-useLocalStorageState hook
-
+- ~~useLocalStorageState hook~~
 - Unit Test
 - Integration Test
 - Coverage

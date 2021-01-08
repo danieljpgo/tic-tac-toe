@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { calculateNextValue, calculateStatus, calculateWinner } from './utils';
-import { History, Squares, Square } from './types';
-import Steps from './Steps';
-import Board from './Board';
 import { useLocalStorageState } from '../common/hooks';
+import { calculateNextValue, calculateStatus, calculateWinner } from './utils';
+import { History, Board as BoardType, Square } from './types';
+import List from './List';
+import Board from './Board';
 
-const historyDefault: History = [Array.from({ length: 9 }, () => null)];
-const currentStepDefault = 0;
+const CURRENT_STEP_INITIAL = 0;
+const HISTORY_INITIAL: History = [Array.from({ length: 9 }, () => null)];
 
 const Game = () => {
-  const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', currentStepDefault);
-  const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', historyDefault);
+  const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', HISTORY_INITIAL);
+  const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', CURRENT_STEP_INITIAL);
 
-  const currentSquares = history[currentStep];
-  const winner = calculateWinner(currentSquares);
-  const nextValue = calculateNextValue(currentSquares);
-  const status = calculateStatus(winner, currentSquares, nextValue);
+  const currentBoard = history[currentStep];
+  const winner = calculateWinner(currentBoard);
+  const nextValue = calculateNextValue(currentBoard);
+  const status = calculateStatus(winner, currentBoard, nextValue);
 
   function handleSelectStep(step: number) {
     setCurrentStep(step);
@@ -26,16 +26,16 @@ const Game = () => {
     setCurrentStep(defaultStep);
   }
 
-  function handleSquaresChange(
+  function handleSelectPosition(
     position: number,
-    squares: Squares,
+    board: BoardType,
     winnerArg: Square,
     currentStepArg: number,
     nextValueArg: Square,
   ) {
-    if (!winnerArg && !squares[position]) {
+    if (!winnerArg && !board[position]) {
       const newHistory = history.slice(0, currentStepArg + 1);
-      const newSquares = squares.map((value, index) => (index === position ? nextValueArg : value));
+      const newSquares = board.map((square, index) => (index === position ? nextValueArg : square));
       setHistory([...newHistory, newSquares]);
       setCurrentStep(newHistory.length);
     }
@@ -45,10 +45,10 @@ const Game = () => {
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
       <div style={{ display: 'grid', placeItems: 'center', gap: 32 }}>
         <Board
-          squares={currentSquares}
-          onSelectPosition={(position) => handleSquaresChange(
+          board={currentBoard}
+          onSelectPosition={(position) => handleSelectPosition(
             position,
-            currentSquares,
+            currentBoard,
             winner,
             currentStep,
             nextValue,
@@ -57,8 +57,8 @@ const Game = () => {
         <button
           type="button"
           onClick={() => handleRestartClick(
-            historyDefault,
-            currentStepDefault,
+            HISTORY_INITIAL,
+            CURRENT_STEP_INITIAL,
           )}
         >
           Restart
@@ -66,7 +66,7 @@ const Game = () => {
       </div>
       <div>
         <div>{status}</div>
-        <Steps
+        <List
           history={history}
           currentStep={currentStep}
           onSelectStep={(step) => handleSelectStep(step)}

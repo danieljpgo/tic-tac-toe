@@ -1,5 +1,5 @@
 export type Square = 'X' | 'O' | null;
 
-export type Squares = Square[];
+export type Board = Square[];
 
-export type History = Squares[];
+export type History = Board[];

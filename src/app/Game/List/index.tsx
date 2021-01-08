@@ -7,7 +7,7 @@ interface Props {
   onSelectStep: (step: number) => void;
 }
 
-const Steps = (props: Props) => {
+const List = (props: Props) => {
   const { history, currentStep, onSelectStep } = props;
 
   return (
@@ -26,4 +26,4 @@ const Steps = (props: Props) => {
   );
 };
 
-export default Steps;
+export default List;

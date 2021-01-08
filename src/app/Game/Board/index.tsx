@@ -1,13 +1,13 @@
-import { Squares } from '../types';
-import Position from './Position';
+import { Board as BoardType } from '../types';
+import Square from './Square';
 
 interface Props {
-  squares: Squares;
+  board: BoardType;
   onSelectPosition: (position: number) => void;
 }
 
 const Board = (props: Props) => {
-  const { squares, onSelectPosition } = props;
+  const { board, onSelectPosition } = props;
 
   return (
     <div>
@@ -18,13 +18,13 @@ const Board = (props: Props) => {
         gap: 8,
       }}
       >
-        {squares.map((square, index) => (
-          <Position
+        {board.map((square, index) => (
+          <Square
             key={index.toString()}
             onSelectPosition={() => onSelectPosition(index)}
           >
             {square}
-          </Position>
+          </Square>
         ))}
       </div>
     </div>

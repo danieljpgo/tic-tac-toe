@@ -4,8 +4,8 @@ import * as React from 'react';
  * useLocalstorageState hook
  * @param {String} key The key to set in localStorage for this value
  * @param {any} initialState The value to use if it is not already in localStorage
- * @param {{serialize: Function, deserialize: Function}} options The serialize and
- * deserialize functions to use(defaults to JSON.stringify and JSON.parse respectively)
+ * @param {{serialize: Function, deserialize: Function}} options The serialize and deserialize
+ * functions to use(defaults to JSON.stringify and JSON.parse respectively)
  */
 
 export const useLocalStorageState = <T>(
@@ -41,3 +41,5 @@ export const useLocalStorageState = <T>(
 
   return [state, setState];
 };
+
+// @TODO Melhorar aqui depois

@@ -1,11 +1,11 @@
-import { Square } from '../../types';
+import { Square as SquareType } from '../../types';
 
 interface Props {
-  children: Square;
+  children: SquareType;
   onSelectPosition: () => void;
 }
 
-const Position = (props: Props) => {
+const Square = (props: Props) => {
   const { children, onSelectPosition } = props;
 
   return (
@@ -19,4 +19,4 @@ const Position = (props: Props) => {
   );
 };
 
-export default Position;
+export default Square;
