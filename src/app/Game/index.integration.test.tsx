@@ -86,3 +86,21 @@ test('no more moves may be played after game is over', () => {
   expect(p6).toHaveTextContent('');
 });
 
+test('restarting the game', () => {
+  render(<Game />);
+
+  const [p1, p2] = Array.from(screen.queryAllByRole('button'));
+
+  expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
+  userEvent.click(p1);
+  expect(p1).toHaveTextContent(/x/i);
+
+  expect(screen.getByText(/next player: o/i)).toBeInTheDocument();
+  userEvent.click(p2);
+  expect(p2).toHaveTextContent(/o/i);
+
+  userEvent.click(screen.getByText(/restart/i));
+
+  expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
+});
+
