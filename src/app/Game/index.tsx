@@ -3,13 +3,14 @@ import { calculateNextValue, calculateStatus, calculateWinner } from './utils';
 import { History, Squares, Square } from './types';
 import Steps from './Steps';
 import Board from './Board';
+import { useLocalStorageState } from '../common/hooks';
 
 const historyDefault: History = [Array.from({ length: 9 }, () => null)];
 const currentStepDefault = 0;
 
 const Game = () => {
-  const [currentStep, setCurrentStep] = React.useState(currentStepDefault);
-  const [history, setHistory] = React.useState<History>(historyDefault);
+  const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', currentStepDefault);
+  const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', historyDefault);
 
   const currentSquares = history[currentStep];
   const winner = calculateWinner(currentSquares);
