@@ -12,6 +12,7 @@ const Square = (props: Props) => {
     <button
       type="button"
       style={{ fontSize: 36 }}
+      className="bg-gray-200"
       onClick={onSelectPosition}
     >
       {children}
