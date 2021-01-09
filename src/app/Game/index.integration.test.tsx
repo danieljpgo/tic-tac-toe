@@ -104,3 +104,46 @@ test('restarting the game', () => {
   expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
 });
 
+test('select a step to return to the starting point', () => {
+  render(<Game />);
+
+  const [p1, p2] = Array.from(screen.queryAllByRole('button'));
+
+  const defaultStep = screen.getByText(/go to game start/i);
+  expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
+  expect(defaultStep).toHaveAttribute('disabled');
+  expect(defaultStep).toHaveTextContent('current');
+
+  userEvent.click(p1);
+  expect(p1).toHaveTextContent(/x/i);
+  expect(screen.getByText(/next player: o/i)).toBeInTheDocument();
+
+  const firstStep = screen.getByText(/go to move #1/i);
+  expect(defaultStep).not.toHaveAttribute('disabled');
+  expect(defaultStep).not.toHaveTextContent('current');
+  expect(firstStep).toHaveAttribute('disabled');
+  expect(firstStep).toHaveTextContent('current');
+
+  userEvent.click(p2);
+  expect(p2).toHaveTextContent(/o/i);
+  expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
+
+  const secondStep = screen.getByText(/go to move #2/i);
+  expect(defaultStep).not.toHaveAttribute('disabled');
+  expect(defaultStep).not.toHaveTextContent('current');
+  expect(firstStep).not.toHaveAttribute('disabled');
+  expect(firstStep).not.toHaveTextContent('curent');
+  expect(secondStep).toHaveAttribute('disabled');
+  expect(secondStep).toHaveTextContent('current');
+
+  userEvent.click(defaultStep);
+  expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
+  expect(p1).toHaveTextContent('');
+  expect(p2).toHaveTextContent('');
+  expect(defaultStep).toHaveAttribute('disabled');
+  expect(defaultStep).toHaveTextContent('current');
+  expect(firstStep).not.toHaveAttribute('disabled');
+  expect(firstStep).not.toHaveTextContent('curent');
+  expect(secondStep).not.toHaveAttribute('disabled');
+  expect(secondStep).not.toHaveTextContent('current');
+});

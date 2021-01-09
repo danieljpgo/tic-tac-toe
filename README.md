@@ -1,11 +1,11 @@
 TODO
 
 - ~~useLocalStorageState hook~~
-- Unit Test
-- Integration Test
-- Coverage
+- ~~Integration Test~~
+- ~~Coverage 100%~~
 - Tailwind
 - Animation - Framer Motion
+- Test Local Storage
 
 <!-- # Getting Started with Create React App
 
