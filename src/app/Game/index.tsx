@@ -42,8 +42,8 @@ const Game = () => {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
-      <div style={{ display: 'grid', placeItems: 'center', gap: 32 }}>
+    <div className="grid place-content-center h-screen">
+      <div className="grid sm:grid-cols-2 gap-6">
         <Board
           board={currentBoard}
           onSelectPosition={(position) => handleSelectPosition(
@@ -54,8 +54,17 @@ const Game = () => {
             nextValue,
           )}
         />
+        <div className="rounded-md shadow-lg px-4 py-6 bg-white">
+          <div>{status}</div>
+          <List
+            history={history}
+            currentStep={currentStep}
+            onSelectStep={(step) => handleSelectStep(step)}
+          />
+        </div>
         <button
           type="button"
+          className="sm:col-span-2"
           onClick={() => handleRestartClick(
             HISTORY_INITIAL,
             CURRENT_STEP_INITIAL,
@@ -63,14 +72,6 @@ const Game = () => {
         >
           Restart
         </button>
-      </div>
-      <div>
-        <div>{status}</div>
-        <List
-          history={history}
-          currentStep={currentStep}
-          onSelectStep={(step) => handleSelectStep(step)}
-        />
       </div>
     </div>
   );

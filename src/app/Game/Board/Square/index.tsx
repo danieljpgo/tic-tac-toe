@@ -11,8 +11,8 @@ const Square = (props: Props) => {
   return (
     <button
       type="button"
-      style={{ fontSize: 36 }}
-      className="bg-gray-200"
+      className="bg-white text-4xl rounded-md shadow-md active:shadow disabled:shadow-md focus:outline-none"
+      disabled={Boolean(children)}
       onClick={onSelectPosition}
     >
       {children}
