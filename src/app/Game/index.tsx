@@ -4,6 +4,8 @@ import { calculateNextValue, calculateStatus, calculateWinner } from './utils';
 import { History, Board as BoardType, Square } from './types';
 import List from './List';
 import Board from './Board';
+import Status from './Status';
+import Actions from './Actions';
 
 const CURRENT_STEP_INITIAL = 0;
 const HISTORY_INITIAL: History = [Array.from({ length: 9 }, () => null)];
@@ -15,7 +17,7 @@ const Game = () => {
   const currentBoard = history[currentStep];
   const winner = calculateWinner(currentBoard);
   const nextValue = calculateNextValue(currentBoard);
-  const status = calculateStatus(winner, currentBoard, nextValue);
+  const [label, player] = calculateStatus(winner, currentBoard, nextValue).split(':');
 
   function handleSelectStep(step: number) {
     setCurrentStep(step);
@@ -42,8 +44,14 @@ const Game = () => {
   }
 
   return (
-    <div className="grid place-content-center h-screen">
-      <div className="grid sm:grid-cols-2 gap-6">
+    <div className="h-screen relative overflow-auto">
+      {/* grid gap-6 */}
+      {/* <div className=""> */}
+      <Status
+        label={label}
+        player={player}
+      />
+      <div className="grid gap-6 px-6">
         <Board
           board={currentBoard}
           onSelectPosition={(position) => handleSelectPosition(
@@ -54,25 +62,18 @@ const Game = () => {
             nextValue,
           )}
         />
-        <div className="rounded-md shadow-lg px-4 py-6 bg-white">
-          <div>{status}</div>
-          <List
-            history={history}
-            currentStep={currentStep}
-            onSelectStep={(step) => handleSelectStep(step)}
-          />
-        </div>
-        <button
-          type="button"
-          className="sm:col-span-2"
-          onClick={() => handleRestartClick(
-            HISTORY_INITIAL,
-            CURRENT_STEP_INITIAL,
-          )}
-        >
-          Restart
-        </button>
+        <List
+          history={history}
+          currentStep={currentStep}
+          onSelectStep={(step) => handleSelectStep(step)}
+        />
       </div>
+      <Actions onRestartClick={() => handleRestartClick(
+        HISTORY_INITIAL,
+        CURRENT_STEP_INITIAL,
+      )}
+      />
+      {/* </div> */}
     </div>
   );
 };

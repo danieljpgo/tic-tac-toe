@@ -11,7 +11,7 @@ const List = (props: Props) => {
   const { history, currentStep, onSelectStep } = props;
 
   return (
-    <ol>
+    <ol className="rounded-md shadow-lg px-4 py-6 self-center bg-white">
       {history.map((_, step) => (
         <Step
           key={step.toString()}

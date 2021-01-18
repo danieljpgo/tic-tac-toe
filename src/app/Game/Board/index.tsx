@@ -10,7 +10,7 @@ const Board = (props: Props) => {
   const { board, onSelectPosition } = props;
 
   return (
-    <div className="h-48 w-48 grid grid-cols-3 grid-rows-3 gap-2 self-center justify-self-end">
+    <div className="h-48 w-48 grid grid-cols-3 grid-rows-3 gap-2 justify-self-center">
       {board.map((square, index) => (
         <Square
           key={index.toString()}
