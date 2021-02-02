@@ -14,7 +14,7 @@ const List = (props: Props) => {
   const currentPlayer = calculateNextPlayer(history[currentStep]) === 'O' ? 'X' : 'O';
 
   return (
-    <ol className="grid gap-2 pl-1 pr-2 ml-2 overflow-y-auto border-t border-b border-gray-200 sm:max-h-48 auto-rows-min">
+    <ol className="grid gap-2 pb-2 pl-1 pr-2 ml-2 sm:pb-0 sm:overflow-y-auto sm:border-t sm:border-b sm:border-gray-200 sm:max-h-48 auto-rows-min">
       {history.map((_, step) => (
         <Step
           key={step.toString()}
