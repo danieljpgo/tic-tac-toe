@@ -109,7 +109,7 @@ test('select a step to return to the starting point', () => {
 
   const [p1, p2] = Array.from(screen.queryAllByRole('button'));
 
-  const defaultStep = screen.getByText(/go to game start/i);
+  const defaultStep = screen.getByRole('button', { name: /go to game start/i });
   expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
   expect(defaultStep).toHaveAttribute('disabled');
   expect(defaultStep).toHaveTextContent('current');
@@ -118,7 +118,7 @@ test('select a step to return to the starting point', () => {
   expect(p1).toHaveTextContent(/x/i);
   expect(screen.getByText(/next player: o/i)).toBeInTheDocument();
 
-  const firstStep = screen.getByText(/go to move #1/i);
+  const firstStep = screen.getByRole('button', { name: /go to move #1/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
   expect(defaultStep).not.toHaveTextContent('current');
   expect(firstStep).toHaveAttribute('disabled');
@@ -128,7 +128,7 @@ test('select a step to return to the starting point', () => {
   expect(p2).toHaveTextContent(/o/i);
   expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
 
-  const secondStep = screen.getByText(/go to move #2/i);
+  const secondStep = screen.getByRole('button', { name: /go to move #2/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
   expect(defaultStep).not.toHaveTextContent('current');
   expect(firstStep).not.toHaveAttribute('disabled');
