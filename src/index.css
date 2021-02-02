@@ -5,3 +5,23 @@
 body {
   @apply bg-gray-100;
 }
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical {
+  @apply w-1;
+}
+
+::-webkit-scrollbar:horizontal {
+  @apply h-1;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200;
+  @apply rounded-full;
+}
+
+::-webkit-scrollbar-track {
+  @apply mt-1;
+  @apply mb-1;
+}
