@@ -5,6 +5,14 @@
 body {
   @apply bg-gray-100;
 }
+
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
 }
