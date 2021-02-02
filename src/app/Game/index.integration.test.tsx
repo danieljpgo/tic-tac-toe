@@ -112,7 +112,7 @@ test('select a step to return to the starting point', () => {
   const defaultStep = screen.getByRole('button', { name: /go to game start/i });
   expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
   expect(defaultStep).toHaveAttribute('disabled');
-  expect(defaultStep).toHaveTextContent('current');
+  expect(defaultStep).toHaveTextContent('*');
 
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x/i);
@@ -120,9 +120,9 @@ test('select a step to return to the starting point', () => {
 
   const firstStep = screen.getByRole('button', { name: /go to move #1/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
-  expect(defaultStep).not.toHaveTextContent('current');
+  expect(defaultStep).not.toHaveTextContent('*');
   expect(firstStep).toHaveAttribute('disabled');
-  expect(firstStep).toHaveTextContent('current');
+  expect(firstStep).toHaveTextContent('*');
 
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/o/i);
@@ -130,20 +130,20 @@ test('select a step to return to the starting point', () => {
 
   const secondStep = screen.getByRole('button', { name: /go to move #2/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
-  expect(defaultStep).not.toHaveTextContent('current');
+  expect(defaultStep).not.toHaveTextContent('*');
   expect(firstStep).not.toHaveAttribute('disabled');
   expect(firstStep).not.toHaveTextContent('curent');
   expect(secondStep).toHaveAttribute('disabled');
-  expect(secondStep).toHaveTextContent('current');
+  expect(secondStep).toHaveTextContent('*');
 
   userEvent.click(defaultStep);
   expect(screen.getByText(/next player: x/i)).toBeInTheDocument();
   expect(p1).toHaveTextContent('');
   expect(p2).toHaveTextContent('');
   expect(defaultStep).toHaveAttribute('disabled');
-  expect(defaultStep).toHaveTextContent('current');
+  expect(defaultStep).toHaveTextContent('*');
   expect(firstStep).not.toHaveAttribute('disabled');
   expect(firstStep).not.toHaveTextContent('curent');
   expect(secondStep).not.toHaveAttribute('disabled');
-  expect(secondStep).not.toHaveTextContent('current');
+  expect(secondStep).not.toHaveTextContent('*');
 });

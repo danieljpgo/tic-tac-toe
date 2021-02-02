@@ -28,5 +28,3 @@ export const useLocalStorageState = <T>(
 
   return [state, setState];
 };
-
-// @TODO Melhorar aqui depois

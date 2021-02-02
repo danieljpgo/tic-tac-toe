@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { useLocalStorageState } from '../common/hooks';
-import { calculateNextValue, calculateStatus, calculateWinner } from './utils';
-import { History, Board as BoardType, Square } from './types';
-import List from './List';
-import Board from './Board';
+import { calculateNextPlayer, calculateStatus, calculateWinner } from './utils';
+import { History, Board as BoardType, Position } from './types';
+import Container from './Container';
+import Restart from './Restart';
 import Status from './Status';
-import Actions from './Actions';
+import Board from './Container/Board';
+import List from './Container/List';
 
 const CURRENT_STEP_INITIAL = 0;
 const HISTORY_INITIAL: History = [Array.from({ length: 9 }, () => null)];
@@ -16,8 +16,8 @@ const Game = () => {
 
   const currentBoard = history[currentStep];
   const winner = calculateWinner(currentBoard);
-  const nextValue = calculateNextValue(currentBoard);
-  const status = calculateStatus(winner, currentBoard, nextValue);
+  const nextPlayer = calculateNextPlayer(currentBoard);
+  const status = calculateStatus(winner, currentBoard, nextPlayer);
 
   function handleSelectStep(step: number) {
     setCurrentStep(step);
@@ -31,13 +31,17 @@ const Game = () => {
   function handleSelectPosition(
     position: number,
     board: BoardType,
-    winnerArg: Square,
+    winnerArg: Position,
     currentStepArg: number,
-    nextValueArg: Square,
+    nextPlayerArg: Position,
   ) {
     if (!winnerArg && !board[position]) {
       const newHistory = history.slice(0, currentStepArg + 1);
-      const newSquares = board.map((square, index) => (index === position ? nextValueArg : square));
+      const newSquares = board.map((square, index) => (
+        index === position
+          ? nextPlayerArg
+          : square
+      ));
       setHistory([...newHistory, newSquares]);
       setCurrentStep(newHistory.length);
     }
@@ -48,15 +52,11 @@ const Game = () => {
       <Status>
         {status}
       </Status>
-      <div className="grid gap-4 px-8 overflow-y-auto sm:overflow-y-visible sm:px-0 sm:grid-cols-2 sm:auto-cols-min">
+      <Container>
         <Board
           board={currentBoard}
-          onSelectPosition={(position) => handleSelectPosition(
-            position,
-            currentBoard,
-            winner,
-            currentStep,
-            nextValue,
+          onSelectPosition={(position) => (
+            handleSelectPosition(position, currentBoard, winner, currentStep, nextPlayer)
           )}
         />
         <List
@@ -64,12 +64,10 @@ const Game = () => {
           currentStep={currentStep}
           onSelectStep={(step) => handleSelectStep(step)}
         />
-      </div>
-      <Actions onRestartClick={() => handleRestartClick(
-        HISTORY_INITIAL,
-        CURRENT_STEP_INITIAL,
-      )}
-      />
+      </Container>
+      <Restart onRestartClick={() => handleRestartClick(HISTORY_INITIAL, CURRENT_STEP_INITIAL)}>
+        restart
+      </Restart>
     </div>
   );
 };

@@ -1,19 +1,22 @@
-import { Board, Square } from './types';
+import type { Board, Position, Player } from './types';
 
-export function calculateStatus(winner: Square, board: Board, nextValue: Square) {
-  const winnerText = `Winner: ${winner}`;
-  const scratchText = 'Scratch: Cat\'s game';
-  const nextPlayerText = `Next Player: ${nextValue}`;
+export function calculateStatus(winner: Position, board: Board, nextPlayer: Player) {
+  const text = {
+    winner: `Winner: ${winner}`,
+    scratch: 'Scratch: Cat\'s game',
+    nextPlayer: `Next Player: ${nextPlayer}`,
+  } as const;
 
   if (winner) {
-    return winnerText;
+    return text.winner;
   }
+
   return board.every((square) => Boolean(square))
-    ? scratchText
-    : nextPlayerText;
+    ? text.scratch
+    : text.nextPlayer;
 }
 
-export function calculateNextValue(board: Board) {
+export function calculateNextPlayer(board: Board) {
   const xSquaresCount = board.filter((r) => r === 'X').length;
   const oSquaresCount = board.filter((r) => r === 'O').length;
   return oSquaresCount === xSquaresCount
@@ -31,7 +34,7 @@ export function calculateWinner(board: Board) {
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
-  ];
+  ] as const;
 
   const [winner] = lines
     .map((row) => {

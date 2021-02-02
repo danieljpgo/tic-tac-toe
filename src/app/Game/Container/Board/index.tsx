@@ -1,5 +1,5 @@
-import { Board as BoardType } from '../types';
-import Square from './Square';
+import { Board as BoardType } from '../../types';
+import Square from './Position';
 
 interface Props {
   board: BoardType;
