@@ -17,7 +17,7 @@ const Game = () => {
   const currentBoard = history[currentStep];
   const winner = calculateWinner(currentBoard);
   const nextValue = calculateNextValue(currentBoard);
-  const [label, player] = calculateStatus(winner, currentBoard, nextValue).split(':');
+  const status = calculateStatus(winner, currentBoard, nextValue);
 
   function handleSelectStep(step: number) {
     setCurrentStep(step);
@@ -44,14 +44,11 @@ const Game = () => {
   }
 
   return (
-    <div className="h-screen relative overflow-auto">
-      {/* grid gap-6 */}
-      {/* <div className=""> */}
-      <Status
-        label={label}
-        player={player}
-      />
-      <div className="grid gap-6 px-6">
+    <div className="grid gap-5 sm:p-8">
+      <Status>
+        {status}
+      </Status>
+      <div className="grid gap-4 px-8 overflow-y-auto sm:overflow-y-visible sm:px-0 sm:grid-cols-2 sm:auto-cols-min">
         <Board
           board={currentBoard}
           onSelectPosition={(position) => handleSelectPosition(
@@ -73,7 +70,6 @@ const Game = () => {
         CURRENT_STEP_INITIAL,
       )}
       />
-      {/* </div> */}
     </div>
   );
 };

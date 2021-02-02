@@ -3,7 +3,7 @@ import { Board, Square } from './types';
 export function calculateStatus(winner: Square, board: Board, nextValue: Square) {
   const winnerText = `Winner: ${winner}`;
   const scratchText = 'Scratch: Cat\'s game';
-  const nextPlayerText = `Next player: ${nextValue}`;
+  const nextPlayerText = `Next Player is: ${nextValue}`;
 
   if (winner) {
     return winnerText;

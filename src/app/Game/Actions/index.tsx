@@ -1,3 +1,5 @@
+import Text from '../../common/components/Text';
+
 interface Props {
   onRestartClick: () => void;
 }
@@ -6,13 +8,15 @@ const Actions = (props: Props) => {
   const { onRestartClick } = props;
 
   return (
-    <div className="rounded-md shadow-lg px-4 py-6 bg-white w-screen fixed bottom-0">
+    <div className="fixed justify-self-end bottom-8 right-8 sm:bottom-auto sm:right-auto sm:relative">
       <button
         type="button"
-        // className="sm:col-span-2"
+        className="px-8 py-2 bg-white rounded-lg shadow-lg active:shadow disabled:shadow-md focus:outline-none"
         onClick={onRestartClick}
       >
-        Restart
+        <Text contrast>
+          RESTART
+        </Text>
       </button>
     </div>
   );
