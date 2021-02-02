@@ -15,7 +15,7 @@ const Restart = (props: Props) => {
         type="button"
         onClick={() => onRestartClick()}
       >
-        <Text contrast>
+        <Text>
           {children}
         </Text>
       </button>

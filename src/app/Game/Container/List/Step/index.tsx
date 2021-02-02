@@ -28,9 +28,9 @@ const Step = (props: Props) => {
         className="flex w-full px-4 py-2 bg-white rounded-lg shadow-md"
         type="button"
         disabled={disabled}
-        onClick={() => onSelectStep()}
+        onClick={onSelectStep}
       >
-        <Text size="small">
+        <Text variant="sub">
           {children}
         </Text>
       </button>

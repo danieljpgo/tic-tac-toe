@@ -1,4 +1,4 @@
-import { gradients } from '../../../../common/constants';
+import Text from '../../../../common/components/Text';
 import { Position as PositionType } from '../../../types';
 
 interface Props {
@@ -11,15 +11,15 @@ const Position = (props: Props) => {
 
   return (
     <button
-      className="text-4xl bg-white rounded-lg shadow-md active:shadow disabled:shadow-md focus:outline-none"
+      className="bg-white rounded-lg shadow-md active:shadow disabled:shadow-md focus:outline-none"
       type="button"
       disabled={Boolean(children)}
-      onClick={() => onSelectPosition()}
+      onClick={onSelectPosition}
     >
       {children && (
-        <span className={`text-gradient font-light bg-gradient-to-b ${gradients[children]}`}>
+        <Text variant={children === 'X' ? 'gradient-blue' : 'gradient-pink'}>
           {children}
-        </span>
+        </Text>
       )}
     </button>
   );
