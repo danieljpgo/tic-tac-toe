@@ -1,4 +1,4 @@
-import { useLocalStorageState } from '../common/hooks';
+import { useLocalStorageState } from '../common/utils/hooks';
 import { calculateNextPlayer, calculateStatus, calculateWinner } from './utils';
 import { History, Board as BoardType, Position } from './types';
 import Container from './Container';
