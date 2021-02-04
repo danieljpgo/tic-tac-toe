@@ -19,7 +19,7 @@ const Text = (props: Props) => {
   } = props;
 
   return (
-    <p className={`${variants[variant]}`}>
+    <p className={`${variants[variant]} `}>
       {children}
     </p>
   );

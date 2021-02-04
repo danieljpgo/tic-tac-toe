@@ -48,7 +48,7 @@ const Game = () => {
   }
 
   return (
-    <div className="grid gap-5 sm:p-8">
+    <div className="grid gap-8 sm:p-8">
       <Status>
         {status}
       </Status>

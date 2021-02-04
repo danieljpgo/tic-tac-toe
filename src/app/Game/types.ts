@@ -1,4 +1,4 @@
-const players = {
+export const players = {
   x: 'X',
   o: 'O',
 } as const;
