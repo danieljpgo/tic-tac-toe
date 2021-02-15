@@ -1,4 +1,4 @@
-TODO
+<!-- TODO
 
 - ~~useLocalStorageState hook~~
 - ~~Integration Test~~
@@ -6,50 +6,88 @@ TODO
 - Tailwind
 - Animation - Framer Motion
 - Test Local Storage
+ -->
 
-<!-- # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center" >
+  TODO
+</h3>
 
-## Available Scripts
+<h1 align="left">Tic-Tac-Toe</h1>
 
-In the project directory, you can run:
+<p align="left">
+   <a href="https://github.com/danieljpgo">
+      <img
+        alt="author"
+        src="https://img.shields.io/badge/author-danieljpgo-1b263b?style=flat&labelColor=2f4858"
+      />
+   </a>
+   <img
+      alt="languages"
+      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=1b263b&style=flat&labelColor=2f4858"
+   />
+   <a href="https://github.com/danieljpgo/tic-tac-toe/graphs/contributors">
+      <img
+        alt="contributors"
+        src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=1b263b&style=flat&labelColor=2f4858"/>
+   </a>
+    <a href="https://github.com/danieljpgo/tic-tac-toe/network/members">
+      <img
+         alt="forks"
+         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=1b263b&style=flat&labelColor=2f4858"/>
+   </a>
+     <img alt="License" src="https://img.shields.io/badge/license-MIT-1b263b?style=flat&labelColor=2f4858">
+</p>
 
-### `yarn start`
+> TODO :hash:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+&nbsp;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+   <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#license">License</a>
+</p>
 
-### `yarn test`
+## Project
+TODO
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+TODO
 
-### `yarn build`
+## Technologies
+The main technologies used to develop the project were:
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/) 
+- [Testing Library](https://testing-library.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Typescript](https://www.typescriptlang.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was bootstrapped with:
+- [create-react-app](https://github.com/facebook/create-react-app)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Custom configuration layer with:
+- [craco](https://github.com/gsoft-inc/craco)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Getting Started
+First of all, you may clone this project:
+```
+git clone https://github.com/danieljpgo/tic-tac-toe.git
+```
+Run the following scripts in order to execute the application:
+```
+// install dependencies
+yarn install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+// start the application
+yarn start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+This project is under the [MIT license](https://github.com/danieljpgo/tic-tac-toe/blob/master/LICENSE).
+<div>Released in 2021.</div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/). -->
+Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
