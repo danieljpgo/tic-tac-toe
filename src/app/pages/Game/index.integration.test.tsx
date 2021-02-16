@@ -82,9 +82,58 @@ test('no more moves may be played after game is over', () => {
   userEvent.click(p3);
   expect(p3).toHaveTextContent(/x/i);
 
-  expect(screen.getByText((_, element) => element?.textContent === 'Winner:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Winner:X')).toBeInTheDocument();
+
   userEvent.click(p6);
   expect(p6).toHaveTextContent('');
+});
+
+test('game is over with no winner', () => {
+  render(<Game />);
+
+  const [
+    p1, p2, p3, // x o x
+    p4, p5, p6, // o o x
+    p7, p8, p9, // x x o
+  ] = Array.from(screen.queryAllByRole('button'));
+
+  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  userEvent.click(p1);
+  expect(p1).toHaveTextContent(/x/i);
+
+  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  userEvent.click(p2);
+  expect(p2).toHaveTextContent(/o/i);
+
+  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  userEvent.click(p3);
+  expect(p3).toHaveTextContent(/x/i);
+
+  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  userEvent.click(p4);
+  expect(p4).toHaveTextContent(/o/i);
+
+  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  userEvent.click(p6);
+  expect(p6).toHaveTextContent(/x/i);
+
+  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  userEvent.click(p5);
+  expect(p5).toHaveTextContent(/o/i);
+
+  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  userEvent.click(p7);
+  expect(p7).toHaveTextContent(/x/i);
+
+  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  userEvent.click(p9);
+  expect(p9).toHaveTextContent(/o/i);
+
+  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  userEvent.click(p8);
+  expect(p8).toHaveTextContent(/x/i);
+
+  expect(screen.getByText(/Scratch: Cat's game/i)).toBeInTheDocument();
 });
 
 test('restarting the game', () => {
