@@ -13,20 +13,16 @@ const Status = (props: Props) => {
     .map((value) => value.trim());
 
   return (
-    <div className="fixed flex items-end justify-end w-full gap-4 px-8 pt-8 pb-4 transform scale-105 -translate-y-8 bg-white shadow-md sm:justify-center sm:items-center sm:scale-100 sm:-translate-y-0 sm:rounded-lg rotate-6 sm:rotate-0 sm:relative sm:w-auto sm:py-2">
-      <div className="transform -rotate-6 sm:rotate-0">
-        <Text>
-          {(label === x || label === o)
-            ? (`${title}:`)
-            : (`${children}`)}
-        </Text>
-      </div>
+    <div className="fixed flex items-center justify-center w-full h-full gap-2 px-4 py-2 bg-white rounded-b-full shadow-md max-h-14 sm:rounded-lg sm:relative sm:w-auto">
+      <Text variant="title">
+        {(label === x || label === o)
+          ? (`${title}:`)
+          : (`${children}`)}
+      </Text>
       {(label === x || label === o) && (
-        <div className="w-8 text-center transform -rotate-6 sm:rotate-0">
-          <Text variant={label === x ? 'gradient-blue' : 'gradient-pink'}>
-            {label}
-          </Text>
-        </div>
+      <Text variant={label === x ? 'gradient-blue' : 'gradient-pink'}>
+        {label}
+      </Text>
       )}
     </div>
   );

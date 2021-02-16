@@ -2,8 +2,9 @@ import { gradients } from '../../utils/constants';
 import { Children } from '../../types';
 
 const variants = {
-  base: 'text-gray-400 text-base',
   sub: 'text-gray-400 text-xs',
+  base: 'text-gray-400 text-base',
+  title: 'text-gray-400 text-lg',
   'gradient-blue': `text-gradient bg-gradient-to-b ${gradients.X} text-4xl font-light`,
   'gradient-pink': `text-gradient bg-gradient-to-b ${gradients.O} text-4xl font-light`,
 }as const;

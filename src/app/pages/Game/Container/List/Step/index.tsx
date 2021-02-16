@@ -19,7 +19,7 @@ const Step = (props: Props) => {
   } = props;
 
   return (
-    <li className="flex gap-2">
+    <li className="flex gap-2 sm:pl-1">
       {step && (
         <div className={`h-2 w-2 bg-gradient-to-b rounded-full self-center ${gradients[player]}`} />
       )}
