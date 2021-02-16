@@ -1,5 +1,5 @@
-import { players } from '../types';
-import Text from '../../common/components/Text';
+import { players } from '../../../common/types/game';
+import Text from '../../../common/components/Text';
 
 interface Props {
   children: string
@@ -8,7 +8,6 @@ interface Props {
 const Status = (props: Props) => {
   const { children } = props;
   const { o, x } = players;
-
   const [title, label] = children
     .split(':')
     .map((value) => value.trim());

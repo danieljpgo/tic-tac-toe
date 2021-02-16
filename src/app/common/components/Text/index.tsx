@@ -1,4 +1,4 @@
-import { gradients } from '../../constants';
+import { gradients } from '../../utils/constants';
 import { Children } from '../../types';
 
 const variants = {
@@ -19,7 +19,7 @@ const Text = (props: Props) => {
   } = props;
 
   return (
-    <p className={`${variants[variant]} `}>
+    <p className={`${variants[variant]}`}>
       {children}
     </p>
   );

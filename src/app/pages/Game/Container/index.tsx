@@ -1,4 +1,4 @@
-import { Children } from '../../common/types';
+import type { Children } from '../../../common/types';
 
 interface Props extends Children {}
 

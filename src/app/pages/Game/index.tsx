@@ -1,6 +1,6 @@
-import { useLocalStorageState } from '../common/utils/hooks';
+import type { History, Board as BoardType, Position } from '../../common/types/game';
+import { useLocalStorageState } from '../../common/utils/hooks';
 import { calculateNextPlayer, calculateStatus, calculateWinner } from './utils';
-import { History, Board as BoardType, Position } from './types';
 import Container from './Container';
 import Restart from './Restart';
 import Status from './Status';
@@ -55,8 +55,12 @@ const Game = () => {
       <Container>
         <Board
           board={currentBoard}
-          onSelectPosition={(position) => (
-            handleSelectPosition(position, currentBoard, winner, currentStep, nextPlayer)
+          onSelectPosition={(position) => handleSelectPosition(
+            position,
+            currentBoard,
+            winner,
+            currentStep,
+            nextPlayer,
           )}
         />
         <List
@@ -65,7 +69,11 @@ const Game = () => {
           onSelectStep={(step) => handleSelectStep(step)}
         />
       </Container>
-      <Restart onRestartClick={() => handleRestartClick(HISTORY_INITIAL, CURRENT_STEP_INITIAL)}>
+      <Restart onRestartClick={() => handleRestartClick(
+        HISTORY_INITIAL,
+        CURRENT_STEP_INITIAL,
+      )}
+      >
         restart
       </Restart>
     </div>

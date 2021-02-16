@@ -1,4 +1,4 @@
-import type { Board, Position, Player } from './types';
+import type { Board, Position, Player } from '../../common/types/game';
 
 export function calculateStatus(winner: Position, board: Board, nextPlayer: Player) {
   const text = {

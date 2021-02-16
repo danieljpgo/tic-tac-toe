@@ -1,5 +1,5 @@
-import Text from '../../../../common/components/Text';
-import { Position as PositionType } from '../../../types';
+import type { Position as PositionType } from '../../../../../common/types/game';
+import Text from '../../../../../common/components/Text';
 
 interface Props {
   children: PositionType;

@@ -1,4 +1,4 @@
-import Game from './Game';
+import Game from './pages/Game';
 
 function App() {
   return (

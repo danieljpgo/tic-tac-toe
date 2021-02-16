@@ -1,5 +1,5 @@
+import type { History } from '../../../../common/types/game';
 import { calculateNextPlayer } from '../../utils';
-import { History } from '../../types';
 import Step from './Step';
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 
 const List = (props: Props) => {
   const { history, currentStep, onSelectStep } = props;
-
   const currentPlayer = calculateNextPlayer(history[currentStep]) === 'O' ? 'X' : 'O';
 
   return (
