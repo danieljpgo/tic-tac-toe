@@ -7,7 +7,7 @@ const variants = {
   title: 'text-gray-400 text-lg',
   'gradient-blue': `text-gradient bg-gradient-to-b ${gradients.X} text-4xl font-light`,
   'gradient-pink': `text-gradient bg-gradient-to-b ${gradients.O} text-4xl font-light`,
-}as const;
+} as const;
 
 interface Props extends Children {
   variant?: keyof typeof variants

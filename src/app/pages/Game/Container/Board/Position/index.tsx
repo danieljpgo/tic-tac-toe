@@ -1,5 +1,6 @@
 import type { Position as PositionType } from '../../../../../common/types/game';
 import Text from '../../../../../common/components/Text';
+import Button from '../../../../../common/components/Button';
 
 interface Props {
   children: PositionType;
@@ -10,8 +11,7 @@ const Position = (props: Props) => {
   const { children, onSelectPosition } = props;
 
   return (
-    <button
-      className="bg-white rounded-lg shadow-md active:shadow disabled:shadow-md focus:outline-none"
+    <Button
       type="button"
       disabled={Boolean(children)}
       onClick={onSelectPosition}
@@ -21,7 +21,7 @@ const Position = (props: Props) => {
           {children}
         </Text>
       )}
-    </button>
+    </Button>
   );
 };
 
