@@ -6,16 +6,16 @@ import Button from '../../../../../common/components/Button';
 const radius = 45;
 const circumference = Math.ceil(2 * Math.PI * radius);
 
-const pathVariants = {
-  pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.25 : 0.25 }),
-  checked: { pathLength: 0.5 },
-  unchecked: { pathLength: 0 },
-};
-
 const circleVariants = {
   pressed: (isChecked: boolean) => ({ strokeDashoffset: isChecked ? 141.5 : 141.5 }),
   checked: { strokeDashoffset: 0 },
   unchecked: { strokeDashoffset: 283 },
+};
+
+const pathVariants = {
+  pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.25 : 0.25 }),
+  checked: { pathLength: 0.5 },
+  unchecked: { pathLength: 0 },
 };
 
 interface Props {

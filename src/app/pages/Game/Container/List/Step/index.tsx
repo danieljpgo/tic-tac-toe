@@ -49,15 +49,16 @@ const Step = (props: Props) => {
     >
       {step && (
         <motion.div
-          layoutId="selected"
           animate
+          layoutId="selected"
           transition={{
             type: 'spring',
             stiffness: 500,
             damping: 30,
             duration: 0.8,
           }}
-          className={`h-2 w-2 bg-gradient-to-b rounded-full self-center ${gradients[player]}`}
+          className={`h-2 w-2 bg-gradient-to-b self-center ${gradients[player]}`}
+          style={{ borderRadius: '100%' }}
         />
       )}
       <motion.div
