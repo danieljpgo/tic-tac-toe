@@ -38,45 +38,38 @@ const Status = (props: Props) => {
               {label === 'X' && 'x mark'}
             </title>
             <AnimatePresence exitBeforeEnter>
-              {(() => {
-                if (label === 'O') {
-                  return (
-                    <motion.circle
-                      key={`${label}`}
-                      className="text-pink-400 stroke-current"
-                      cx="50"
-                      cy="50"
-                      r={radius}
-                      fill="transparent"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray={circumference}
-                      initial={{ strokeDashoffset: 283 }}
-                      animate={{ strokeDashoffset: 0 }}
-                      exit={{ strokeDashoffset: 283 }}
-                    />
-                  );
-                }
-                if (label === 'X') {
-                  return (
-                    <motion.path
-                      key={`${label}`}
-                      className="text-blue-400 stroke-current"
-                      d="M 12 12 88 88 M 88 12 12 88"
-                      fill="transparent"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      style={{ strokeDashoffset: 1 }}
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 0.5 }}
-                      exit={{ pathLength: 0 }}
-                    />
-                  );
-                }
-                return null;
-              })()}
+              {label === 'O' ? (
+                <motion.circle
+                  key={`${label}`}
+                  className="text-pink-400 stroke-current"
+                  cx="50"
+                  cy="50"
+                  r={radius}
+                  fill="transparent"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray={circumference}
+                  initial={{ strokeDashoffset: 283 }}
+                  animate={{ strokeDashoffset: 0 }}
+                  exit={{ strokeDashoffset: 283 }}
+                />
+              ) : (
+                <motion.path
+                  key={`${label}`}
+                  className="text-blue-400 stroke-current"
+                  d="M 12 12 88 88 M 88 12 12 88"
+                  fill="transparent"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ strokeDashoffset: 1 }}
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 0.5 }}
+                  exit={{ pathLength: 0 }}
+                />
+              )}
+              ;
             </AnimatePresence>
           </motion.svg>
         </div>

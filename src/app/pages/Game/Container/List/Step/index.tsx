@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import type { Children, Player } from '../../../../../common/types';
-import { gradients } from '../../../../../common/utils/constants';
-import Text from '../../../../../common/components/Text';
 import Button from '../../../../../common/components/Button';
+import Text from '../../../../../common/components/Text';
 
 interface Props extends Children {
   step: boolean;
@@ -22,6 +21,7 @@ const Step = (props: Props) => {
 
   return (
     <motion.li
+      className="flex gap-2 sm:pl-1"
       variants={{
         hidden: {
           y: 20,
@@ -45,10 +45,10 @@ const Step = (props: Props) => {
           },
         },
       }}
-      className="flex gap-2 sm:pl-1"
     >
       {step && (
         <motion.div
+          className={`h-2 w-2 bg-gradient-to-b self-center ${player === 'O' ? 'bg-pink-400' : 'bg-blue-400'}`}
           animate
           layoutId="selected"
           transition={{
@@ -57,11 +57,11 @@ const Step = (props: Props) => {
             damping: 30,
             duration: 0.8,
           }}
-          className={`h-2 w-2 bg-gradient-to-b self-center ${gradients[player]}`}
           style={{ borderRadius: '100%' }}
         />
       )}
       <motion.div
+        className="w-full"
         variants={{
           hidden: {
             opacity: 0,
@@ -85,7 +85,6 @@ const Step = (props: Props) => {
             },
           },
         }}
-        className="w-full"
       >
         <Button
           type="button"
@@ -97,7 +96,6 @@ const Step = (props: Props) => {
           </div>
         </Button>
       </motion.div>
-
     </motion.li>
   );
 };

@@ -65,12 +65,12 @@ const Position = (props: Props) => {
                     cy="50"
                     r={radius}
                     fill="transparent"
-                    custom={Boolean(position)}
-                    variants={circleVariants}
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeDasharray={circumference}
+                    custom={Boolean(position)}
+                    variants={circleVariants}
                   />
                 );
               }
@@ -81,11 +81,11 @@ const Position = (props: Props) => {
                     className="text-blue-400 stroke-current"
                     d="M 12 12 88 88 M 88 12 12 88"
                     fill="transparent"
-                    custom={Boolean(position)}
-                    variants={pathVariants}
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    custom={Boolean(position)}
+                    variants={pathVariants}
                     style={{ strokeDashoffset: 1 }}
                   />
                 );
@@ -100,12 +100,12 @@ const Position = (props: Props) => {
                       cy="50"
                       r={radius}
                       fill="transparent"
-                      custom={Boolean(position)}
-                      variants={circleVariants}
                       strokeWidth="8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeDasharray={circumference}
+                      custom={Boolean(position)}
+                      variants={circleVariants}
                     />
                   );
                 }
@@ -116,11 +116,11 @@ const Position = (props: Props) => {
                       className="text-blue-400 stroke-current"
                       d="M 12 12 88 88 M 88 12 12 88"
                       fill="transparent"
-                      custom={Boolean(position)}
-                      variants={pathVariants}
                       strokeWidth="8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      custom={Boolean(position)}
+                      variants={pathVariants}
                       style={{ strokeDashoffset: 1 }}
                     />
                   );

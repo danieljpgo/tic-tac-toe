@@ -21,39 +21,39 @@ test('can play a game of tic tac toe', () => {
     p7, p8, p9, // o x x
   ] = Array.from(screen.queryAllByRole('button'));
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p3);
   expect(p3).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p4);
   expect(p4).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p5);
   expect(p5).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p6);
   expect(p6).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p8);
   expect(p8).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p7);
   expect(p7).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p9);
   expect(p9).toHaveTextContent(/x mark/i);
 });
@@ -66,27 +66,27 @@ test('no more moves may be played after game is over', () => {
     p4, p5, p6,
   ] = Array.from(screen.queryAllByRole('button'));
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p4);
   expect(p4).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p5);
   expect(p5).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p3);
   expect(p3).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Winner:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Winner:x mark')).toBeInTheDocument();
 
   userEvent.click(p6);
   expect(p6).toHaveTextContent('');
@@ -101,39 +101,39 @@ test('game is over with no winner', () => {
     p7, p8, p9, // x x o
   ] = Array.from(screen.queryAllByRole('button'));
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p3);
   expect(p3).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p4);
   expect(p4).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p6);
   expect(p6).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p5);
   expect(p5).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p7);
   expect(p7).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p9);
   expect(p9).toHaveTextContent(/circle mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p8);
   expect(p8).toHaveTextContent(/x mark/i);
 
@@ -145,17 +145,17 @@ test('restarting the game', () => {
 
   const [p1, p2] = Array.from(screen.queryAllByRole('button'));
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x mark/i);
 
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/circle mark/i);
 
   userEvent.click(screen.getByText(/restart/i));
 
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
 });
 
 test('select a step to return to the starting point', () => {
@@ -164,13 +164,13 @@ test('select a step to return to the starting point', () => {
   const [p1, p2] = Array.from(screen.queryAllByRole('button'));
 
   const defaultStep = screen.getByRole('button', { name: /go to game start/i });
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   expect(defaultStep).toHaveAttribute('disabled');
   expect(defaultStep).toHaveTextContent('*');
 
   userEvent.click(p1);
   expect(p1).toHaveTextContent(/x mark/i);
-  expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:circle mark')).toBeInTheDocument();
 
   const firstStep = screen.getByRole('button', { name: /go to move #1/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
@@ -180,7 +180,7 @@ test('select a step to return to the starting point', () => {
 
   userEvent.click(p2);
   expect(p2).toHaveTextContent(/circle mark/i);
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
 
   const secondStep = screen.getByRole('button', { name: /go to move #2/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
@@ -191,7 +191,7 @@ test('select a step to return to the starting point', () => {
   expect(secondStep).toHaveTextContent('*');
 
   userEvent.click(defaultStep);
-  expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
+  expect(getByTextParent(screen, 'Next Player:x mark')).toBeInTheDocument();
   expect(p1).toHaveTextContent('');
   expect(p2).toHaveTextContent('');
   expect(defaultStep).toHaveAttribute('disabled');
