@@ -8,6 +8,10 @@ beforeEach(() => {
   window.localStorage.clear();
 });
 
+if (!SVGElement.prototype.getTotalLength) {
+  SVGElement.prototype.getTotalLength = () => 1;
+}
+
 test('can play a game of tic tac toe', () => {
   render(<Game />);
 
@@ -19,39 +23,39 @@ test('can play a game of tic tac toe', () => {
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x/i);
+  expect(p1).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/o/i);
+  expect(p2).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p3);
-  expect(p3).toHaveTextContent(/x/i);
+  expect(p3).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p4);
-  expect(p4).toHaveTextContent(/o/i);
+  expect(p4).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p5);
-  expect(p5).toHaveTextContent(/x/i);
+  expect(p5).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p6);
-  expect(p6).toHaveTextContent(/o/i);
+  expect(p6).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p8);
-  expect(p8).toHaveTextContent(/x/i);
+  expect(p8).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p7);
-  expect(p7).toHaveTextContent(/o/i);
+  expect(p7).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p9);
-  expect(p9).toHaveTextContent(/x/i);
+  expect(p9).toHaveTextContent(/x mark/i);
 });
 
 test('no more moves may be played after game is over', () => {
@@ -64,23 +68,23 @@ test('no more moves may be played after game is over', () => {
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x/i);
+  expect(p1).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p4);
-  expect(p4).toHaveTextContent(/o/i);
+  expect(p4).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/x/i);
+  expect(p2).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p5);
-  expect(p5).toHaveTextContent(/o/i);
+  expect(p5).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p3);
-  expect(p3).toHaveTextContent(/x/i);
+  expect(p3).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Winner:X')).toBeInTheDocument();
 
@@ -99,39 +103,39 @@ test('game is over with no winner', () => {
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x/i);
+  expect(p1).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/o/i);
+  expect(p2).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p3);
-  expect(p3).toHaveTextContent(/x/i);
+  expect(p3).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p4);
-  expect(p4).toHaveTextContent(/o/i);
+  expect(p4).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p6);
-  expect(p6).toHaveTextContent(/x/i);
+  expect(p6).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p5);
-  expect(p5).toHaveTextContent(/o/i);
+  expect(p5).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p7);
-  expect(p7).toHaveTextContent(/x/i);
+  expect(p7).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p9);
-  expect(p9).toHaveTextContent(/o/i);
+  expect(p9).toHaveTextContent(/circle mark/i);
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p8);
-  expect(p8).toHaveTextContent(/x/i);
+  expect(p8).toHaveTextContent(/x mark/i);
 
   expect(screen.getByText(/Scratch: Cat's game/i)).toBeInTheDocument();
 });
@@ -143,11 +147,11 @@ test('restarting the game', () => {
 
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x/i);
+  expect(p1).toHaveTextContent(/x mark/i);
 
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/o/i);
+  expect(p2).toHaveTextContent(/circle mark/i);
 
   userEvent.click(screen.getByText(/restart/i));
 
@@ -165,7 +169,7 @@ test('select a step to return to the starting point', () => {
   expect(defaultStep).toHaveTextContent('*');
 
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x/i);
+  expect(p1).toHaveTextContent(/x mark/i);
   expect(getByTextParent(screen, 'Next Player:O')).toBeInTheDocument();
 
   const firstStep = screen.getByRole('button', { name: /go to move #1/i });
@@ -175,7 +179,7 @@ test('select a step to return to the starting point', () => {
   expect(firstStep).toHaveTextContent('*');
 
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/o/i);
+  expect(p2).toHaveTextContent(/circle mark/i);
   expect(getByTextParent(screen, 'Next Player:X')).toBeInTheDocument();
 
   const secondStep = screen.getByRole('button', { name: /go to move #2/i });

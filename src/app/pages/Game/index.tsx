@@ -55,6 +55,7 @@ const Game = () => {
       <Container>
         <Board
           board={currentBoard}
+          nextPlayer={nextPlayer}
           onSelectPosition={(position) => handleSelectPosition(
             position,
             currentBoard,

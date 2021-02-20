@@ -1,13 +1,14 @@
-import type { Board as BoardType } from '../../../../common/types/game';
+import type { Board as BoardType, Player } from '../../../../common/types/game';
 import Position from './Position';
 
 interface Props {
   board: BoardType;
+  nextPlayer: Player;
   onSelectPosition: (position: number) => void;
 }
 
 const Board = (props: Props) => {
-  const { board, onSelectPosition } = props;
+  const { board, nextPlayer, onSelectPosition } = props;
 
   return (
     <div className="pt-20 sm:pl-2 sm:pt-0 justify-self-center">
@@ -15,10 +16,11 @@ const Board = (props: Props) => {
         {board.map((position, index) => (
           <Position
             key={index.toString()}
+            index={index}
+            position={position}
+            nextPlayer={nextPlayer}
             onSelectPosition={() => onSelectPosition(index)}
-          >
-            {position}
-          </Position>
+          />
         ))}
       </div>
     </div>
