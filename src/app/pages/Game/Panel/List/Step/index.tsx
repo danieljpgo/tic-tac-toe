@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import type { Children, Player } from '../../../../common/types';
-import Button from '../../../../common/components/Button';
-import Text from '../../../../common/components/Text';
+import type { Children, Player } from '../../../../../common/types';
+import Button from '../../../../../common/components/Button';
+import Text from '../../../../../common/components/Text';
 
 interface Props extends Children {
   player: Player;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { Player, Position as PositionType } from '../../../../common/types/game';
-import Button from '../../../../common/components/Button';
+import type { Player, Position as PositionType } from '../../../../../common/types/game';
+import Button from '../../../../../common/components/Button';
 
 const RADIUS = 45;
 const CIRCUMFERENCE = Math.ceil(2 * Math.PI * RADIUS);

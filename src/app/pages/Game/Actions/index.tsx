@@ -1,28 +1,34 @@
 import Button from '../../../common/components/Button';
 import Text from '../../../common/components/Text';
+import { Display } from '../../../common/types';
+import { useMediaQuery } from '../../../common/utils/hooks/useMedia';
 
 interface Props {
+  display: Display;
   onRestartClick: () => void;
-  onSwitch: () => void;
+  onSwitchDisplay: () => void;
 }
 
 const Actions = (props: Props) => {
-  const { onRestartClick, onSwitch } = props;
+  const { display, onRestartClick, onSwitchDisplay } = props;
+  const isMobile = useMediaQuery('sm');
 
   return (
     <div className="fixed flex justify-between w-full px-8 sm:px-0 bottom-8 sm:relative sm:bottom-auto">
       <div>
-        <Button
-          type="button"
-          elevation="lg"
-          onClick={onSwitch}
-        >
-          <div className="px-8 py-2 uppercase">
-            <Text>
-              Teste
-            </Text>
-          </div>
-        </Button>
+        {isMobile && (
+          <Button
+            type="button"
+            elevation="lg"
+            onClick={onSwitchDisplay}
+          >
+            <div className="px-8 py-2 uppercase">
+              <Text>
+                {display === 'game' ? 'board' : 'steps'}
+              </Text>
+            </div>
+          </Button>
+        )}
       </div>
       <div>
         <Button

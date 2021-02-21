@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type {
   History,
   Board as BoardType,
@@ -8,17 +9,17 @@ import { calculateNextPlayer, calculateStatus, calculateWinner } from './utils';
 import { useLocalStorageState } from '../../common/utils/hooks';
 import Actions from './Actions';
 import Status from './Status';
-import Board from './Board';
 import Panel from './Panel';
-import List from './List';
+import Board from './Panel/Board';
+import List from './Panel/List';
 
 const CURRENT_STEP_INITIAL = 0;
 const HISTORY_INITIAL: History = [Array.from({ length: 9 }, () => null)];
 
 const Game = () => {
+  const [display, setDisplay] = React.useState<Display>('game');
   const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', HISTORY_INITIAL);
   const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', CURRENT_STEP_INITIAL);
-  const [display, setDisplay] = useLocalStorageState<Display>('tic-tac-toe:display', 'game');
 
   const currentBoard = history[currentStep];
   const winner = calculateWinner(currentBoard);
@@ -86,11 +87,12 @@ const Game = () => {
         )}
       />
       <Actions
+        display={display}
+        onSwitchDisplay={() => handleSwitchDisplay()}
         onRestartClick={() => handleRestartClick(
           HISTORY_INITIAL,
           CURRENT_STEP_INITIAL,
         )}
-        onSwitch={() => handleSwitchDisplay()}
       />
     </div>
   );

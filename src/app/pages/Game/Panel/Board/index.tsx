@@ -1,4 +1,4 @@
-import type { Board as BoardType, Player } from '../../../common/types/game';
+import type { Board as BoardType, Player } from '../../../../common/types/game';
 import Position from './Position';
 
 interface Props {
