@@ -10,3 +10,5 @@ export type Position = Player | null;
 export type Board = Position[];
 
 export type History = Board[];
+
+export type Display = 'game' | 'list';

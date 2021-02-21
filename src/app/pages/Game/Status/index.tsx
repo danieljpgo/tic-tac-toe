@@ -19,13 +19,14 @@ const Status = (props: Props) => {
   const labelValid = label === x || label === o;
 
   return (
-    <div className="fixed flex items-center justify-center w-full gap-2 px-4 py-2 bg-white rounded-br-full shadow-md h-14 sm:rounded-lg sm:relative sm:w-auto">
-      <Text variant="title">
-        {labelValid
-          ? (`${title}:`)
-          : (`${children}`)}
-      </Text>
-      {labelValid && (
+    <div className="fixed w-full px-8 top-8 sm:px-0 sm:top-auto sm:relative">
+      <div className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md h-14 sm:w-auto">
+        <Text variant="title">
+          {labelValid
+            ? (`${title}:`)
+            : (`${children}`)}
+        </Text>
+        {labelValid && (
         <div className="w-8">
           <motion.svg
             height="100%"
@@ -73,7 +74,8 @@ const Status = (props: Props) => {
             </AnimatePresence>
           </motion.svg>
         </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
