@@ -17,7 +17,7 @@ const List = (props: Props) => {
     <AnimateSharedLayout>
       <AnimatePresence>
         <motion.ol
-          className="grid w-screen gap-2 px-20 pb-2 sm:w-full pt-28 sm:px-0 sm:pt-0 justify-self-center sm:pr-2 sm:max-w-none sm:pb-0 sm:overflow-y-auto sm:border-t sm:border-b sm:border-gray-300 sm:max-h-48 auto-rows-min"
+          className="grid w-screen gap-2 px-20 pt-32 pb-2 sm:w-full sm:px-0 sm:pt-0 justify-self-center sm:pr-2 sm:max-w-none sm:pb-0 sm:overflow-y-auto sm:border-t sm:border-b sm:border-gray-300 sm:max-h-48 auto-rows-min"
           variants={{
             show: {
               transition: {
