@@ -13,7 +13,7 @@ type Breakpoints = keyof typeof breakpoints;
 export const useMediaQuery = (query: Breakpoints) => {
   const [matches, setMatches] = React.useState(false);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: ${breakpoints[query]})`);
     setMatches(mediaQuery.matches);
 
