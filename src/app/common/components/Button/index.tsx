@@ -25,6 +25,7 @@ const Button = (props: Props) => {
 
   return (
     <motion.button
+      className={`w-full active:shadow bg-white rounded-lg shadow-md sm:shadow-md disabled:shadow-md  active:outline-none outline-none  focus:outline-none ${elevations[elevation]}`}
       layout
       whileTap={{
         scale: disabled ? 1 : 0.95,
@@ -35,7 +36,6 @@ const Button = (props: Props) => {
         stiffness: 500,
         damping: 30,
       }}
-      className={`w-full active:shadow bg-white rounded-lg shadow-md sm:shadow-md disabled:shadow-md  active:outline-none outline-none  focus:outline-none ${elevations[elevation]}`}
       type={type}
       disabled={disabled}
       onClick={onClick}

@@ -1,17 +1,3 @@
-<!-- TODO
-
-- ~~useLocalStorageState hook~~
-- ~~Integration Test~~
-- ~~Coverage 100%~~
-- ~~Tailwind~~
-- Animation - Framer Motion
-- Test Local Storage
-
-TODO
-scroll acompanhar
- -->
-
-
 <div align="center">
     <img
       alt="tic tac toe"
@@ -60,16 +46,23 @@ scroll acompanhar
 </p>
 
 ## Project
-TODO
+The project is a tic-tac-toe game, where you can play freely, rewind your steps, restart at any time and everything beautifully animated, in addition, saving your progress, even closing the browser, so you can continue playing whenever you want.
 
 ## Goals
-TODO
-~~Tailwind~~
-~~Integration Test~~
-~~Custom Hook~~
+The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). In addition, learn even more about [Framer Motion](https://www.framer.com/motion/) animation library. Finally, go deeper into the concepts and advantages of developing more integration tests, as opposed to unit tests using [Testing Library](https://testing-library.com/).
+
+
+- Guillermo Rauch [tweet](https://twitter.com/rauchg/status/807626710350839808).
+- Kent C Dodds [blog post](https://kentcdodds.com/blog/write-tests).
+> Write tests. Not too many. Mostly integration.
 
 ## Features
-TODO
+- Playing a tic-tac-toe game.
+- Restart at any time.
+- Saving progress to the browser.
+- Rewind each step performed in the game.
+- Completely animated.
+- Almost 100% test coverage.
 
 ## Technologies
 The main technologies used to develop the project were:

@@ -19,7 +19,7 @@ const Status = (props: Props) => {
   const labelValid = label === x || label === o;
 
   return (
-    <div className="fixed flex items-center justify-center w-full gap-2 px-4 py-2 bg-white rounded-b-full shadow-md h-14 sm:rounded-lg sm:relative sm:w-auto">
+    <div className="fixed flex items-center justify-center w-full gap-2 px-4 py-2 bg-white rounded-br-full shadow-md h-14 sm:rounded-lg sm:relative sm:w-auto">
       <Text variant="title">
         {labelValid
           ? (`${title}:`)
