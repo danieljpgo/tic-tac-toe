@@ -1,6 +1,6 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
-import type { History } from '../../../../common/types/game';
-import { calculateNextPlayer } from '../../utils';
+import type { History } from '../../../common/types/game';
+import { calculateNextPlayer } from '../utils';
 import Step from './Step';
 
 interface Props {
@@ -38,9 +38,8 @@ const List = (props: Props) => {
           {history.map((_, step) => (
             <Step
               key={step.toString()}
-              step={step === currentStep}
               player={currentPlayer}
-              disabled={step === currentStep}
+              current={step === currentStep}
               onSelectStep={() => onSelectStep(step)}
             >
               {step === 0 ? 'Go to game start' : `Go to move #${step} `}

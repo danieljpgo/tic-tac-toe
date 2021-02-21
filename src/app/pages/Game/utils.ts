@@ -1,6 +1,6 @@
 import type { Board, Position, Player } from '../../common/types/game';
 
-export function calculateStatus(winner: Position, board: Board, nextPlayer: Player) {
+export const calculateStatus = (winner: Position, board: Board, nextPlayer: Player) => {
   const text = {
     winner: `Winner: ${winner}`,
     scratch: 'Scratch: Cat\'s game',
@@ -14,17 +14,17 @@ export function calculateStatus(winner: Position, board: Board, nextPlayer: Play
   return board.every((square) => Boolean(square))
     ? text.scratch
     : text.nextPlayer;
-}
+};
 
-export function calculateNextPlayer(board: Board) {
+export const calculateNextPlayer = (board: Board) => {
   const xSquaresCount = board.filter((r) => r === 'X').length;
   const oSquaresCount = board.filter((r) => r === 'O').length;
   return oSquaresCount === xSquaresCount
     ? 'X'
     : 'O';
-}
+};
 
-export function calculateWinner(board: Board) {
+export const calculateWinner = (board: Board) => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -47,4 +47,4 @@ export function calculateWinner(board: Board) {
     .filter((square) => Boolean(square));
 
   return winner;
-}
+};

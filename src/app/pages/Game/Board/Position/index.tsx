@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { Player, Position as PositionType } from '../../../../../common/types/game';
-import Button from '../../../../../common/components/Button';
+import type { Player, Position as PositionType } from '../../../../common/types/game';
+import Button from '../../../../common/components/Button';
 
-const radius = 45;
-const circumference = Math.ceil(2 * Math.PI * radius);
+const RADIUS = 45;
+const CIRCUMFERENCE = Math.ceil(2 * Math.PI * RADIUS);
 
 const circleVariants = {
   pressed: (isChecked: boolean) => ({ strokeDashoffset: isChecked ? 141.5 : 141.5 }),
@@ -42,13 +42,13 @@ const Position = (props: Props) => {
       <AnimatePresence exitBeforeEnter>
         <motion.svg
           className="p-3"
+          aria-labelledby={`${position}-${index}`}
+          viewBox="0 0 100 100"
           height="100%"
           width="100%"
+          whileTap="pressed"
           initial={false}
           animate={position ? 'checked' : 'unchecked'}
-          whileTap="pressed"
-          viewBox="0 0 100 100"
-          aria-labelledby={`${position}-${index}`}
         >
           <title id={`${position}-${index}`}>
             {position === 'O' && 'circle mark'}
@@ -63,12 +63,12 @@ const Position = (props: Props) => {
                     className="text-pink-400 stroke-current"
                     cx="50"
                     cy="50"
-                    r={radius}
+                    r={RADIUS}
                     fill="transparent"
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeDasharray={circumference}
+                    strokeDasharray={CIRCUMFERENCE}
                     custom={Boolean(position)}
                     variants={circleVariants}
                   />
@@ -98,12 +98,12 @@ const Position = (props: Props) => {
                       className="text-pink-400 stroke-current"
                       cx="50"
                       cy="50"
-                      r={radius}
+                      r={RADIUS}
                       fill="transparent"
                       strokeWidth="8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeDasharray={circumference}
+                      strokeDasharray={CIRCUMFERENCE}
                       custom={Boolean(position)}
                       variants={circleVariants}
                     />

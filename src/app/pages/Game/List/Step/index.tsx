@@ -1,20 +1,18 @@
 import { motion } from 'framer-motion';
-import type { Children, Player } from '../../../../../common/types';
-import Button from '../../../../../common/components/Button';
-import Text from '../../../../../common/components/Text';
+import type { Children, Player } from '../../../../common/types';
+import Button from '../../../../common/components/Button';
+import Text from '../../../../common/components/Text';
 
 interface Props extends Children {
-  step: boolean;
   player: Player;
-  disabled: boolean;
+  current: boolean;
   onSelectStep: () => void;
 }
 
 const Step = (props: Props) => {
   const {
-    step,
     player,
-    disabled,
+    current,
     children,
     onSelectStep,
   } = props;
@@ -46,7 +44,7 @@ const Step = (props: Props) => {
         },
       }}
     >
-      {step && (
+      {current && (
         <motion.div
           className={`h-2 w-2 bg-gradient-to-b self-center ${player === 'O' ? 'bg-pink-400' : 'bg-blue-400'}`}
           animate
@@ -88,7 +86,7 @@ const Step = (props: Props) => {
       >
         <Button
           type="button"
-          disabled={disabled}
+          disabled={current}
           onClick={onSelectStep}
         >
           <div className="flex px-4 py-2">

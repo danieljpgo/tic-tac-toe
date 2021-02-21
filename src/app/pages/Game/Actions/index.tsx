@@ -6,7 +6,7 @@ interface Props {
   onRestartClick: () => void;
 }
 
-const Restart = (props: Props) => {
+const Actions = (props: Props) => {
   const { children, onRestartClick } = props;
 
   return (
@@ -26,4 +26,4 @@ const Restart = (props: Props) => {
   );
 };
 
-export default Restart;
+export default Actions;
