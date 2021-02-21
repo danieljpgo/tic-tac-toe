@@ -14,7 +14,7 @@ const Panel = (props: Props) => {
   const isMobile = useMediaQuery('sm'); // eslint-disable-line
 
   return (
-    <motion.div className="relative grid h-screen gap-6 px-8 overflow-hidden sm:h-auto sm:gap-4 sm:px-0 sm:grid-cols-2 sm:auto-cols-min sm:static">
+    <motion.div className="relative grid h-screen gap-6 px-8 overflow-hidden sm:overflow-visible sm:h-auto sm:gap-4 sm:px-0 sm:grid-cols-2 sm:auto-cols-min sm:static">
       <AnimatePresence>
         {(() => {
           if (isMobile) {
