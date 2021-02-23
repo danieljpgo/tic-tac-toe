@@ -10,8 +10,8 @@ interface Props {
 }
 
 const Panel = (props: Props) => {
-  const { display, left, right } = props; // eslint-disable-line
-  const isMobile = useMediaQuery('sm'); // eslint-disable-line
+  const { display, left, right } = props;
+  const isMobile = useMediaQuery('sm');
 
   return (
     <motion.div className="relative grid h-screen gap-6 px-8 overflow-hidden sm:overflow-visible sm:h-auto sm:gap-4 sm:px-0 sm:grid-cols-2 sm:auto-cols-min sm:static">

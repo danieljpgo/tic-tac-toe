@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type {
-  History,
-  Board as BoardType,
-  Position,
   Display,
+  History,
+  Position,
+  Board as BoardType,
 } from '../../common/types/game';
 import { calculateNextPlayer, calculateStatus, calculateWinner } from './utils';
 import { useLocalStorageState } from '../../common/utils/hooks';

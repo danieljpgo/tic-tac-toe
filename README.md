@@ -52,9 +52,9 @@ The project is a tic-tac-toe game, where you can play freely, rewind your steps,
 The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). In addition, learn even more about [Framer Motion](https://www.framer.com/motion/) animation library. Finally, go deeper into the concepts and advantages of developing more integration tests, as opposed to unit tests using [Testing Library](https://testing-library.com/).
 
 
+> Write tests. Not too many. Mostly integration.
 - Guillermo Rauch [tweet](https://twitter.com/rauchg/status/807626710350839808).
 - Kent C Dodds [blog post](https://kentcdodds.com/blog/write-tests).
-> Write tests. Not too many. Mostly integration.
 
 ## Features
 - Playing a tic-tac-toe game.
@@ -62,7 +62,7 @@ The goal of this project was to learn the concepts of utility-first CSS and have
 - Saving progress to the browser.
 - Rewind each step performed in the game.
 - Completely animated.
-- Almost 100% test coverage.
+- Main features tested.
 
 ## Technologies
 The main technologies used to develop the project were:
