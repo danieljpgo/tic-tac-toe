@@ -60,32 +60,25 @@ const Game = () => {
 
   return (
     <div className="grid gap-4 sm:p-8">
-      <Status>
-        {status}
-      </Status>
-      <Panel
-        display={display}
-        left={(
-          <Board
-            board={currentBoard}
-            nextPlayer={nextPlayer}
-            onSelectPosition={(position) => handleSelectPosition(
-              position,
-              currentBoard,
-              winner,
-              currentStep,
-              nextPlayer,
-            )}
-          />
-        )}
-        right={(
-          <List
-            history={history}
-            currentStep={currentStep}
-            onSelectStep={(step) => handleSelectStep(step)}
-          />
-        )}
-      />
+      <Status>{status}</Status>
+      <Panel display={display}>
+        <Board
+          board={currentBoard}
+          nextPlayer={nextPlayer}
+          onSelectPosition={(position) => handleSelectPosition(
+            position,
+            currentBoard,
+            winner,
+            currentStep,
+            nextPlayer,
+          )}
+        />
+        <List
+          history={history}
+          currentStep={currentStep}
+          onSelectStep={(step) => handleSelectStep(step)}
+        />
+      </Panel>
       <Actions
         display={display}
         onSwitchDisplay={() => handleSwitchDisplay()}
