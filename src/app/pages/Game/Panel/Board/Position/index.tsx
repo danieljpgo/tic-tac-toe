@@ -53,6 +53,7 @@ const Position = (props: Props) => {
           <title id={`${position}-${index}`}>
             {position === 'O' && 'circle mark'}
             {position === 'X' && 'x mark'}
+            {position === null && 'unmarked'}
           </title>
           <AnimatePresence exitBeforeEnter>
             {(() => {
