@@ -45,6 +45,14 @@
    <a href="#license">License</a>
 </p>
 
+<div align="center">
+   <img
+      alt="tic tac toe"
+      title="tic tac toe"
+      src=".github/anim.gif"
+      width="640px" />
+</div>
+
 ## Project
 The project is a tic-tac-toe game, where you can play freely, rewind your steps, restart at any time and everything beautifully animated, in addition, saving your progress, even closing the browser, so you can continue playing whenever you want.
 
