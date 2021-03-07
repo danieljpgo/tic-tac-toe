@@ -1,5 +1,5 @@
 import type { Board, Position, Player } from '../../common/types';
-import { players } from '../../common/utils/constants/game';
+import { players } from '../../common/utils/constants';
 
 export const calculateStatus = (winner: Position, board: Board, nextPlayer: Player) => {
   const text = {

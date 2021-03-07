@@ -49,20 +49,15 @@
 The project is a tic-tac-toe game, where you can play freely, rewind your steps, restart at any time and everything beautifully animated, in addition, saving your progress, even closing the browser, so you can continue playing whenever you want.
 
 ## Goals
-The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). In addition, learn even more about [Framer Motion](https://www.framer.com/motion/) animation library. Finally, go deeper into the concepts and advantages of developing more integration tests, as opposed to unit tests using [Testing Library](https://testing-library.com/).
-
-
-> Write tests. Not too many. Mostly integration.
-- Guillermo Rauch [tweet](https://twitter.com/rauchg/status/807626710350839808).
-- Kent C Dodds [blog post](https://kentcdodds.com/blog/write-tests).
+The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). Besides that, learn even more about [Framer Motion](https://www.framer.com/motion/). Finally, find the best approach to test svgs using accessibility concepts with [Testing Library](https://testing-library.com/).
 
 ## Features
-- Playing a tic-tac-toe game.
+- Tic-tac-toe game.
 - Restart at any time.
+- Rewind each step performed.
 - Saving progress to the browser.
-- Rewind each step performed in the game.
-- Completely animated.
-- Main features tested.
+- All interactions are animated.
+- All stages and interactions are tested.
 
 ## Technologies
 The main technologies used to develop the project were:
@@ -75,7 +70,7 @@ The main technologies used to develop the project were:
 This project was bootstrapped with:
 - [create-react-app](https://github.com/facebook/create-react-app)
 
-Custom configuration layer make with:
+Custom configuration layer with:
 - [craco](https://github.com/gsoft-inc/craco)
 
 

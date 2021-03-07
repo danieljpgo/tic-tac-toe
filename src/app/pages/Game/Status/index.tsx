@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { players } from '../../../common/utils/constants/game';
+import { players } from '../../../common/utils/constants';
 import Text from '../../../common/components/Text';
 
 const radius = 45;
@@ -34,8 +34,8 @@ const Status = (props: Props) => {
             aria-labelledby={`${label}`}
           >
             <title id={`${label}`}>
-              {label === players.o && 'circle marker status'}
-              {label === players.x && 'x marker status'}
+              {label === players.o && 'circle player status'}
+              {label === players.x && 'x player status'}
             </title>
             <AnimatePresence exitBeforeEnter>
               {label === players.o ? (
