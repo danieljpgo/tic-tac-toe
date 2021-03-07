@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { Children, Player } from '../../../../../common/types';
+import { players } from '../../../../../common/utils/constants';
 import Button from '../../../../../common/components/Button';
 import Text from '../../../../../common/components/Text';
 
@@ -46,7 +47,7 @@ const Step = (props: Props) => {
     >
       {current && (
         <motion.div
-          className={`h-2 w-2 bg-gradient-to-b self-center ${player === 'O' ? 'bg-pink-400' : 'bg-blue-400'}`}
+          className={`h-2 w-2 bg-gradient-to-b self-center ${player === players.o ? 'bg-pink-400' : 'bg-blue-400'}`}
           animate
           layoutId="selected"
           transition={{

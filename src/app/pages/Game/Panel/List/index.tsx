@@ -1,5 +1,6 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import type { History } from '../../../../common/types/game';
+import { players } from '../../../../common/utils/constants';
 import { calculateNextPlayer } from '../../utils';
 import Step from './Step';
 
@@ -11,7 +12,9 @@ interface Props {
 
 const List = (props: Props) => {
   const { history, currentStep, onSelectStep } = props;
-  const currentPlayer = calculateNextPlayer(history[currentStep]) === 'O' ? 'X' : 'O';
+  const currentPlayer = calculateNextPlayer(history[currentStep]) === players.o
+    ? players.x
+    : players.o;
 
   return (
     <AnimateSharedLayout>

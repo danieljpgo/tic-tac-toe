@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { Player, Position as PositionType } from '../../../../../common/types/game';
+import type { Player, Position as PositionType } from '../../../../../common/types';
+import { players } from '../../../../../common/utils/constants';
 import Button from '../../../../../common/components/Button';
 
-const RADIUS = 45;
-const CIRCUMFERENCE = Math.ceil(2 * Math.PI * RADIUS);
+const radius = 45;
+const circumference = Math.ceil(2 * Math.PI * radius);
 
 const circleVariants = {
   pressed: (isChecked: boolean) => ({ strokeDashoffset: isChecked ? 141.5 : 141.5 }),
@@ -51,34 +52,34 @@ const Position = (props: Props) => {
           animate={position ? 'checked' : 'unchecked'}
         >
           <title id={`${position}-${index}`}>
-            {position === 'O' && 'circle mark'}
-            {position === 'X' && 'x mark'}
+            {position === players.o && 'circle mark'}
+            {position === players.x && 'x mark'}
             {position === null && 'unmarked'}
           </title>
           <AnimatePresence exitBeforeEnter>
             {(() => {
-              if (position === 'O') {
+              if (position === players.o) {
                 return (
                   <motion.circle
-                    key={`O-${index}`}
+                    key={`${players.o}-${index}`}
                     className="text-pink-400 stroke-current"
                     cx="50"
                     cy="50"
-                    r={RADIUS}
+                    r={radius}
                     fill="transparent"
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeDasharray={CIRCUMFERENCE}
+                    strokeDasharray={circumference}
                     custom={Boolean(position)}
                     variants={circleVariants}
                   />
                 );
               }
-              if (position === 'X') {
+              if (position === players.x) {
                 return (
                   <motion.path
-                    key={`X-${index}`}
+                    key={`${players.x}-${index}`}
                     className="text-blue-400 stroke-current"
                     d="M 12 12 88 88 M 88 12 12 88"
                     fill="transparent"
@@ -92,28 +93,28 @@ const Position = (props: Props) => {
                 );
               }
               if (position === null) {
-                if (nextPlayer === 'O') {
+                if (nextPlayer === players.o) {
                   return (
                     <motion.circle
-                      key={`O-${index}`}
+                      key={`${players.o}-${index}`}
                       className="text-pink-400 stroke-current"
                       cx="50"
                       cy="50"
-                      r={RADIUS}
+                      r={radius}
                       fill="transparent"
                       strokeWidth="8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeDasharray={CIRCUMFERENCE}
+                      strokeDasharray={circumference}
                       custom={Boolean(position)}
                       variants={circleVariants}
                     />
                   );
                 }
-                if (nextPlayer === 'X') {
+                if (nextPlayer === players.x) {
                   return (
                     <motion.path
-                      key={`X-${index}`}
+                      key={`${players.x}-${index}`}
                       className="text-blue-400 stroke-current"
                       d="M 12 12 88 88 M 88 12 12 88"
                       fill="transparent"

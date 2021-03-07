@@ -1,4 +1,4 @@
-import { Children } from '../../types';
+import type { Children } from '../../types';
 
 const variants = {
   sub: 'text-gray-400 text-xs',

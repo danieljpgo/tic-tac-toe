@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export const useLocalStorageState = <T>(
+export const useLocalStorageState = <Data>(
   key: string,
-  initialState: T,
+  initialState: Data,
   { serialize = JSON.stringify, deserialize = JSON.parse } = {},
-): [T, React.Dispatch<React.SetStateAction<T>>] => {
+): [Data, React.Dispatch<React.SetStateAction<Data>>] => {
   const [state, setState] = React.useState(() => {
     const init = typeof initialState === 'function' ? initialState() : initialState;
     try {

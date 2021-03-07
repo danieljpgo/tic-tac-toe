@@ -1,7 +1,7 @@
+import { useMediaQuery } from '../../../common/utils/hooks';
+import type { Display } from '../../../common/types';
 import Button from '../../../common/components/Button';
 import Text from '../../../common/components/Text';
-import { Display } from '../../../common/types';
-import { useMediaQuery } from '../../../common/utils/hooks/useMedia';
 
 interface Props {
   display: Display;

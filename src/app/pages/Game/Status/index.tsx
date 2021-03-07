@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { players } from '../../../common/types/game';
+import { players } from '../../../common/utils/constants/game';
 import Text from '../../../common/components/Text';
 
 const radius = 45;
@@ -11,12 +11,11 @@ interface Props {
 
 const Status = (props: Props) => {
   const { children } = props;
-  const { o, x } = players;
   const [title, label] = children
     .split(':')
     .map((value) => value.trim());
 
-  const labelValid = label === x || label === o;
+  const labelValid = label === players.x || label === players.o;
 
   return (
     <div className="fixed z-20 w-full px-8 top-8 sm:px-0 sm:top-auto sm:relative">
@@ -35,11 +34,11 @@ const Status = (props: Props) => {
             aria-labelledby={`${label}`}
           >
             <title id={`${label}`}>
-              {label === 'O' && 'circle marker status'}
-              {label === 'X' && 'x marker status'}
+              {label === players.o && 'circle marker status'}
+              {label === players.x && 'x marker status'}
             </title>
             <AnimatePresence exitBeforeEnter>
-              {label === 'O' ? (
+              {label === players.o ? (
                 <motion.circle
                   key={`${label}`}
                   className="text-pink-400 stroke-current"

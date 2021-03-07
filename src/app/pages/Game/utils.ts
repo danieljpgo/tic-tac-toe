@@ -1,4 +1,5 @@
-import type { Board, Position, Player } from '../../common/types/game';
+import type { Board, Position, Player } from '../../common/types';
+import { players } from '../../common/utils/constants/game';
 
 export const calculateStatus = (winner: Position, board: Board, nextPlayer: Player) => {
   const text = {
@@ -17,11 +18,11 @@ export const calculateStatus = (winner: Position, board: Board, nextPlayer: Play
 };
 
 export const calculateNextPlayer = (board: Board) => {
-  const xSquaresCount = board.filter((r) => r === 'X').length;
-  const oSquaresCount = board.filter((r) => r === 'O').length;
+  const xSquaresCount = board.filter((r) => r === players.x).length;
+  const oSquaresCount = board.filter((r) => r === players.o).length;
   return oSquaresCount === xSquaresCount
-    ? 'X'
-    : 'O';
+    ? players.x
+    : players.o;
 };
 
 export const calculateWinner = (board: Board) => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import { Children } from '../../types';
+import type { Children } from '../../types';
 
 const elevations = {
   md: 'shadow-md',
