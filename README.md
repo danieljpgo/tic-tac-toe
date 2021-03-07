@@ -54,10 +54,10 @@
 </div>
 
 ## Project
-The project is a tic-tac-toe game, where you can play freely, rewind your steps, restart at any time and everything beautifully animated, in addition, saving your progress, even closing the browser, so you can continue playing whenever you want.
+The project is a tic-tac-toe, where you can play, rewind your steps, restart at any time and everything beautifully animated, besides that, saving your progress, even closing the browser, so you can continue playing whenever you want.
 
 ## Goals
-The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). Besides that, learn even more about [Framer Motion](https://www.framer.com/motion/). Finally, find the best approach to test svgs using accessibility concepts with [Testing Library](https://testing-library.com/).
+The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). Besides that, learn even more about [Framer Motion](https://www.framer.com/motion/) and finally, find the best approach to test svgs using accessibility concepts with [Testing Library](https://testing-library.com/).
 
 ## Features
 - Tic-tac-toe game.

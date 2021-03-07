@@ -13,13 +13,13 @@ import Panel from './Panel';
 import Board from './Panel/Board';
 import List from './Panel/List';
 
-const CURRENT_STEP_INITIAL = 0;
-const HISTORY_INITIAL: History = [Array.from({ length: 9 }, () => null)];
+const currentStepInitial = 0;
+const historyInitial: History = [Array.from({ length: 9 }, () => null)];
 
 const Game = () => {
   const [display, setDisplay] = React.useState<Display>('game');
-  const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', HISTORY_INITIAL);
-  const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', CURRENT_STEP_INITIAL);
+  const [history, setHistory] = useLocalStorageState<History>('tic-tac-toe:history', historyInitial);
+  const [currentStep, setCurrentStep] = useLocalStorageState('tic-tac-toe:currentStep', currentStepInitial);
 
   const currentBoard = history[currentStep];
   const winner = calculateWinner(currentBoard);
@@ -83,8 +83,8 @@ const Game = () => {
         display={display}
         onSwitchDisplay={() => handleSwitchDisplay()}
         onRestartClick={() => handleRestartClick(
-          HISTORY_INITIAL,
-          CURRENT_STEP_INITIAL,
+          historyInitial,
+          currentStepInitial,
         )}
       />
     </div>
