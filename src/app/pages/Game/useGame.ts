@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { calculate } from '../../common/utils/helpers/calculate';
-import { Board, History, Position } from '../../common/types';
+import type { Board, History, Position } from '../../common/types';
 
 type Game = {
   history: History;
-  currentStep: number;
+  step: number;
 }
 
 const initialState: Game = {
   history: [Array.from({ length: 9 }, () => null)],
-  currentStep: 0,
+  step: 0,
 };
 
 type GameActions =
@@ -22,20 +22,20 @@ function gameReducer(state: typeof initialState = initialState, action: GameActi
     case 'RESTART':
       return {
         history: initialState.history,
-        currentStep: initialState.currentStep,
+        step: initialState.step,
       };
 
     case 'SELECT_STEP':
       return {
         history: state.history,
-        currentStep: action.step,
+        step: action.step,
       };
 
     case 'SELECT_POSITION':
       return {
-        currentStep: state.history.slice(0, state.currentStep + 1).length,
+        step: state.history.slice(0, state.step + 1).length,
         history: [
-          ...state.history.slice(0, state.currentStep + 1),
+          ...state.history.slice(0, state.step + 1),
           action.payload.board.map((square, i) => (
             i === action.payload.position
               ? action.payload.nextPlayer
@@ -49,20 +49,20 @@ function gameReducer(state: typeof initialState = initialState, action: GameActi
 }
 
 const useGame = () => {
-  const [{ currentStep, history }, dispatch] = React.useReducer(gameReducer, initialState);
+  const [{ step, history }, dispatch] = React.useReducer(gameReducer, initialState);
 
-  const currentBoard = history[currentStep];
-  const winner = calculate.winner(currentBoard);
-  const nextPlayer = calculate.nextPlayer(currentBoard);
-  const status = calculate.status(winner, currentBoard, nextPlayer);
+  const board = history[step];
+  const winner = calculate.winner(board);
+  const nextPlayer = calculate.nextPlayer(board);
+  const status = calculate.status(winner, board, nextPlayer);
 
   return [{
-    winner,
+    board,
+    hasWinner: Boolean(winner),
     status,
     history,
     nextPlayer,
-    currentStep,
-    currentBoard,
+    step,
   }, dispatch] as const;
 };
 

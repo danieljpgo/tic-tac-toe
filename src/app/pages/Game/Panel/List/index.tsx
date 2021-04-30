@@ -6,13 +6,13 @@ import Step from './Step';
 
 interface Props {
   history: History;
-  currentStep: number;
+  step: number;
   onSelectStep: (step: number) => void;
 }
 
 const List = (props: Props) => {
-  const { history, currentStep, onSelectStep } = props;
-  const currentPlayer = calculate.nextPlayer(history[currentStep]) === players.o
+  const { history, step, onSelectStep } = props;
+  const currentPlayer = calculate.nextPlayer(history[step]) === players.o
     ? players.x
     : players.o;
 
@@ -38,15 +38,15 @@ const List = (props: Props) => {
           animate="show"
           exit="out"
         >
-          {history.map((_, step) => (
+          {history.map((_, index) => (
             <Step
-              key={step.toString()}
+              key={index.toString()}
               player={currentPlayer}
-              current={step === currentStep}
-              onSelectStep={() => onSelectStep(step)}
+              current={index === step}
+              onSelectStep={() => onSelectStep(index)}
             >
-              {step === 0 ? 'Go to game start' : `Go to move #${step} `}
-              {step === currentStep && '*'}
+              {index === 0 ? 'Go to game start' : `Go to move #${index} `}
+              {index === step && '*'}
             </Step>
           ))}
         </motion.ol>

@@ -10,20 +10,20 @@ import { useGame } from './useGame';
 const Game = () => {
   const [display, setDisplay] = React.useState<Display>('game');
   const [{
-    winner,
+    step,
+    board,
+    hasWinner,
     status,
     history,
     nextPlayer,
-    currentStep,
-    currentBoard,
   }, dispatch] = useGame();
 
   function handleSwitchDisplayClick() {
     setDisplay((prev) => (prev === 'game' ? 'list' : 'game'));
   }
 
-  function handleSelectStep(step: number) {
-    dispatch({ type: 'SELECT_STEP', step });
+  function handleSelectStep(selectedStep: number) {
+    dispatch({ type: 'SELECT_STEP', step: selectedStep });
   }
 
   function handleRestartClick() {
@@ -32,16 +32,16 @@ const Game = () => {
 
   function handleSelectPosition(
     position: number,
-    board: BoardType,
-    winnerArg: Position,
+    currentBoard: BoardType,
+    winner: boolean,
     nextPlayerArg: Position,
   ) {
-    if (winnerArg || board[position]) return;
+    if (winner || board[position]) return;
 
     dispatch({
       type: 'SELECT_POSITION',
       payload: {
-        board,
+        board: currentBoard,
         position,
         nextPlayer: nextPlayerArg,
       },
@@ -53,19 +53,19 @@ const Game = () => {
       <Status>{status}</Status>
       <Panel display={display}>
         <Board
-          board={currentBoard}
+          board={board}
           nextPlayer={nextPlayer}
           onSelectPosition={(position) => handleSelectPosition(
             position,
-            currentBoard,
-            winner,
+            board,
+            hasWinner,
             nextPlayer,
           )}
         />
         <List
           history={history}
-          currentStep={currentStep}
-          onSelectStep={(step) => handleSelectStep(step)}
+          step={step}
+          onSelectStep={(selectedStep) => handleSelectStep(selectedStep)}
         />
       </Panel>
       <Actions
