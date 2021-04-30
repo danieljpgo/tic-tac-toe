@@ -25,5 +25,6 @@ export const useMediaQuery = (query: Breakpoints) => {
       setMatches(event.matches);
     });
   }, []);
+
   return matches;
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Game from '../index';
+import Game from '.';
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -174,8 +174,8 @@ test('select a step to return to the starting point', () => {
   expect(defaultStep).toHaveTextContent('*');
 
   userEvent.click(p1);
-  expect(p1).toHaveTextContent(/x player mark/i);
   expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
+  expect(p1).toHaveTextContent(/x player mark/i);
 
   const firstStep = screen.getByRole('button', { name: /go to move #1/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
@@ -184,8 +184,8 @@ test('select a step to return to the starting point', () => {
   expect(firstStep).toHaveTextContent('*');
 
   userEvent.click(p2);
-  expect(p2).toHaveTextContent(/circle player mark/i);
   expect(screen.getByText(/x player status/i)).toBeInTheDocument();
+  expect(p2).toHaveTextContent(/circle player mark/i);
 
   const secondStep = screen.getByRole('button', { name: /go to move #2/i });
   expect(defaultStep).not.toHaveAttribute('disabled');
@@ -206,3 +206,5 @@ test('select a step to return to the starting point', () => {
   expect(secondStep).not.toHaveAttribute('disabled');
   expect(secondStep).not.toHaveTextContent('*');
 });
+
+// @TODO Local Storage Test

@@ -7,17 +7,11 @@ const variants = {
 } as const;
 
 interface Props extends Children {
-  variant?: keyof typeof variants
+  variant?: keyof typeof variants;
 }
 
-const Text = (props: Props) => {
-  const { children, variant = 'base' } = props;
-
-  return (
-    <p className={`${variants[variant]}`}>
-      {children}
-    </p>
-  );
-};
+const Text = ({ children, variant = 'base' }: Props) => (
+  <p className={`${variants[variant]}`}>{children}</p>
+);
 
 export default Text;
