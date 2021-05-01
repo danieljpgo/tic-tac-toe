@@ -64,6 +64,23 @@ test('can play a game of tic tac toe', () => {
   expect(p9).toHaveTextContent(/x player mark/i);
 });
 
+test('progress is saved even when reloading the page', () => {
+  const { rerender } = render(<Game />);
+
+  const [p1] = Array.from(screen.queryAllByRole('button'));
+
+  expect(screen.getByText(/x player status/i)).toBeInTheDocument();
+  userEvent.click(p1);
+
+  expect(p1).toHaveTextContent(/x player mark/i);
+  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
+
+  rerender(<Game key="new" />);
+
+  expect(p1).toHaveTextContent(/x player mark/i);
+  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
+});
+
 test('no more moves may be played after game is over', () => {
   render(<Game />);
 
