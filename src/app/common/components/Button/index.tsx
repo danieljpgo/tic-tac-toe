@@ -16,9 +16,9 @@ interface Props extends Children {
 
 const Button = (props: Props) => {
   const {
-    children,
     type = 'button',
     disabled,
+    children,
     elevation = 'md',
     onClick,
   } = props;

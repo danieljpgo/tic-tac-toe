@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMediaQuery } from '../../../common/utils/hooks';
 import type { Display } from '../../../common/types';
+import { useMediaQuery } from '../../../common/utils/hooks';
 
 interface Props {
   display: Display;

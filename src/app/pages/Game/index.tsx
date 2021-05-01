@@ -1,20 +1,20 @@
 import * as React from 'react';
 import type { Display, Position, Board as BoardType } from '../../common/types';
+import { useGame } from './useGame';
 import Actions from './Actions';
 import Status from './Status';
 import Panel from './Panel';
 import Board from './Panel/Board';
 import List from './Panel/List';
-import { useGame } from './useGame';
 
 const Game = () => {
   const [display, setDisplay] = React.useState<Display>('game');
   const [{
     step,
     board,
-    hasWinner,
     status,
     history,
+    hasWinner,
     nextPlayer,
   }, dispatch] = useGame();
 
@@ -56,31 +56,22 @@ const Game = () => {
           board={board}
           nextPlayer={nextPlayer}
           onSelectPosition={(position) => handleSelectPosition(
-            position,
-            board,
-            hasWinner,
-            nextPlayer,
+            position, board, hasWinner, nextPlayer,
           )}
         />
         <List
-          history={history}
           step={step}
-          onSelectStep={(selectedStep) => handleSelectStep(selectedStep)}
+          history={history}
+          onSelectStep={handleSelectStep}
         />
       </Panel>
       <Actions
         display={display}
-        onRestartClick={() => handleRestartClick()}
-        onSwitchDisplayClick={() => handleSwitchDisplayClick()}
+        onRestartClick={handleRestartClick}
+        onSwitchDisplayClick={handleSwitchDisplayClick}
       />
     </div>
   );
 };
 
 export default Game;
-
-// const [history, setHistory] =
-// useLocalStorageState<History>('tic-tac-toe:history', historyInitial);
-// const [currentStep, setCurrentStep] =
-// useLocalStorageState('tic-tac-toe:currentStep', currentStepInitial);
-// import { useLocalStorageState } from '../../common/utils/hooks';

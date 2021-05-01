@@ -1,31 +1,29 @@
 import type { Board, Position, Player } from '../../types';
-import { players } from '../constants';
+import { players } from '../../types';
 
-const calculateStatus = (winner: Position, board: Board, nextPlayer: Player) => {
+export function calculateStatus(winner: Position, board: Board, nextPlayer: Player) {
   const text = {
     winner: `Winner: ${winner}`,
     scratch: 'Scratch: Cat\'s game',
     nextPlayer: `Next Player: ${nextPlayer}`,
   } as const;
 
-  if (winner) {
-    return text.winner;
-  }
+  if (winner) return text.winner;
 
   return board.every((square) => Boolean(square))
     ? text.scratch
     : text.nextPlayer;
-};
+}
 
-const calculateNextPlayer = (board: Board) => {
+export function calculateNextPlayer(board: Board) {
   const xSquaresCount = board.filter((r) => r === players.x).length;
   const oSquaresCount = board.filter((r) => r === players.o).length;
   return oSquaresCount === xSquaresCount
     ? players.x
     : players.o;
-};
+}
 
-const calculateWinner = (board: Board) => {
+export function calculateWinner(board: Board) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -48,10 +46,4 @@ const calculateWinner = (board: Board) => {
     .filter((square) => Boolean(square));
 
   return winner;
-};
-
-export const calculate = {
-  status: calculateStatus,
-  nextPlayer: calculateNextPlayer,
-  winner: calculateWinner,
-};
+}

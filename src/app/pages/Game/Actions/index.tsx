@@ -23,9 +23,7 @@ const Actions = (props: Props) => {
             onClick={onSwitchDisplayClick}
           >
             <div className="px-8 py-2 uppercase">
-              <Text>
-                {display === 'game' ? 'board' : 'steps'}
-              </Text>
+              <Text>{display === 'game' ? 'board' : 'steps'}</Text>
             </div>
           </Button>
         )}
@@ -37,9 +35,7 @@ const Actions = (props: Props) => {
           onClick={onRestartClick}
         >
           <div className="px-8 py-2 uppercase">
-            <Text>
-              restart
-            </Text>
+            <Text>restart</Text>
           </div>
         </Button>
       </div>

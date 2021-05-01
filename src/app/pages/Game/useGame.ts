@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { calculate } from '../../common/utils/helpers/calculate';
 import type { Board, History, Position } from '../../common/types';
+import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../common/utils/helpers';
+import { useLocalStorageReducer } from '../../common/utils/hooks';
 
-type Game = {
+interface Game {
   history: History;
   step: number;
 }
@@ -49,20 +49,20 @@ function gameReducer(state: typeof initialState = initialState, action: GameActi
 }
 
 const useGame = () => {
-  const [{ step, history }, dispatch] = React.useReducer(gameReducer, initialState);
+  const [{ step, history }, dispatch] = useLocalStorageReducer('tic-tac-toe:game', gameReducer, initialState);
 
   const board = history[step];
-  const winner = calculate.winner(board);
-  const nextPlayer = calculate.nextPlayer(board);
-  const status = calculate.status(winner, board, nextPlayer);
+  const winner = calculateWinner(board);
+  const nextPlayer = calculateNextPlayer(board);
+  const status = calculateStatus(winner, board, nextPlayer);
 
   return [{
+    step,
     board,
-    hasWinner: Boolean(winner),
     status,
     history,
+    hasWinner: Boolean(winner),
     nextPlayer,
-    step,
   }, dispatch] as const;
 };
 

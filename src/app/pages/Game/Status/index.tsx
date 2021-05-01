@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { players } from '../../../common/utils/constants';
+import { players } from '../../../common/types';
 import Text from '../../../common/components/Text';
 
 const radius = 45;
