@@ -215,7 +215,7 @@ test('progress is saved even when reloading the page', () => {
   expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
 });
 
-test('only on mobile should display a button to togle between board and list of steps', () => {
+test('only on mobile should display a button to toggle between board and list of steps', () => {
   const { rerender } = render(<App />);
   expect(screen.queryByRole('button', { name: /steps/i })).not.toBeInTheDocument();
 
@@ -223,4 +223,7 @@ test('only on mobile should display a button to togle between board and list of 
 
   rerender(<App key="new" />);
   expect(screen.getByRole('button', { name: /steps/i })).toBeInTheDocument();
+
+  userEvent.click(screen.getByRole('button', { name: /steps/i }));
+  expect(screen.getByRole('button', { name: /board/i })).toBeInTheDocument();
 });
