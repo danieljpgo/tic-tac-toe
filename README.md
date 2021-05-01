@@ -9,6 +9,7 @@
 <h1 align="left">Tic-Tac-Toe</h1>
 
 <p align="left">
+   <div>
    <a href="https://github.com/danieljpgo">
       <img
         alt="author"
@@ -29,7 +30,10 @@
          alt="forks"
          src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
    </a>
-     <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+   </div>
+   <img alt="License" src="./coverage/badge.svg">
+   
 </p>
 
 > Just a tic-tac-toe game. :hash:

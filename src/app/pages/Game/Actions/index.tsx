@@ -23,7 +23,7 @@ const Actions = (props: Props) => {
             onClick={onSwitchDisplayClick}
           >
             <div className="px-8 py-2 uppercase">
-              <Text>{display === 'game' ? 'board' : 'steps'}</Text>
+              <Text>{display === 'game' ? 'steps' : 'board'}</Text>
             </div>
           </Button>
         )}

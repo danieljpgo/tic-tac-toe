@@ -1,25 +1,19 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Game from '.';
+import { render, screen } from '@testing-library/react';
+import { createMatchMedia, resize } from './common/utils/helpers';
+import App from '.';
 
 beforeEach(() => {
   window.localStorage.clear();
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: jest.fn().mockImplementation((query) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
+    value: createMatchMedia({ width: window.innerWidth, height: window.innerHeight }),
   });
 });
 
 test('can play a game of tic tac toe', () => {
-  render(<Game />);
+  render(<App />);
 
   const [
     p1, p2, p3,
@@ -64,25 +58,8 @@ test('can play a game of tic tac toe', () => {
   expect(p9).toHaveTextContent(/x player mark/i);
 });
 
-test('progress is saved even when reloading the page', () => {
-  const { rerender } = render(<Game />);
-
-  const [p1] = Array.from(screen.queryAllByRole('button'));
-
-  expect(screen.getByText(/x player status/i)).toBeInTheDocument();
-  userEvent.click(p1);
-
-  expect(p1).toHaveTextContent(/x player mark/i);
-  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
-
-  rerender(<Game key="new" />);
-
-  expect(p1).toHaveTextContent(/x player mark/i);
-  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
-});
-
 test('no more moves may be played after game is over', () => {
-  render(<Game />);
+  render(<App />);
 
   const [
     p1, p2, p3,
@@ -115,7 +92,7 @@ test('no more moves may be played after game is over', () => {
 });
 
 test('game is over with no winner', () => {
-  render(<Game />);
+  render(<App />);
 
   const [
     p1, p2, p3,
@@ -163,7 +140,7 @@ test('game is over with no winner', () => {
 });
 
 test('restarting the game', () => {
-  render(<Game />);
+  render(<App />);
 
   const [p1, p2] = Array.from(screen.queryAllByRole('button'));
 
@@ -181,7 +158,7 @@ test('restarting the game', () => {
 });
 
 test('select a step to return to the starting point', () => {
-  render(<Game />);
+  render(<App />);
 
   const [p1, p2] = Array.from(screen.queryAllByRole('button'));
 
@@ -224,4 +201,29 @@ test('select a step to return to the starting point', () => {
   expect(secondStep).not.toHaveTextContent('*');
 });
 
-// @TODO Local Storage Test
+test('progress is saved even when reloading the page', () => {
+  const { rerender } = render(<App />);
+
+  const [p1] = Array.from(screen.queryAllByRole('button'));
+
+  expect(screen.getByText(/x player status/i)).toBeInTheDocument();
+  userEvent.click(p1);
+
+  expect(p1).toHaveTextContent(/x player mark/i);
+  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
+
+  rerender(<App key="new" />);
+
+  expect(p1).toHaveTextContent(/x player mark/i);
+  expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
+});
+
+test('only on mobile should display a button to togle between board and list of steps', () => {
+  const { rerender } = render(<App />);
+  expect(screen.queryByRole('button', { name: /steps/i })).not.toBeInTheDocument();
+
+  resize({ width: 400 });
+
+  rerender(<App key="new" />);
+  expect(screen.getByRole('button', { name: /steps/i })).toBeInTheDocument();
+});
