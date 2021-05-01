@@ -6,10 +6,7 @@ import App from '.';
 
 beforeEach(() => {
   window.localStorage.clear();
-  Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: createMatchMedia({ width: window.innerWidth, height: window.innerHeight }),
-  });
+  window.matchMedia = createMatchMedia({ width: window.innerWidth, height: window.innerHeight });
 });
 
 test('can play a game of tic tac toe', () => {
@@ -185,7 +182,7 @@ test('select a step to return to the starting point', () => {
   expect(defaultStep).not.toHaveAttribute('disabled');
   expect(defaultStep).not.toHaveTextContent('*');
   expect(firstStep).not.toHaveAttribute('disabled');
-  expect(firstStep).not.toHaveTextContent('curent');
+  expect(firstStep).not.toHaveTextContent('*');
   expect(secondStep).toHaveAttribute('disabled');
   expect(secondStep).toHaveTextContent('*');
 
@@ -196,7 +193,7 @@ test('select a step to return to the starting point', () => {
   expect(defaultStep).toHaveAttribute('disabled');
   expect(defaultStep).toHaveTextContent('*');
   expect(firstStep).not.toHaveAttribute('disabled');
-  expect(firstStep).not.toHaveTextContent('curent');
+  expect(firstStep).not.toHaveTextContent('*');
   expect(secondStep).not.toHaveAttribute('disabled');
   expect(secondStep).not.toHaveTextContent('*');
 });
