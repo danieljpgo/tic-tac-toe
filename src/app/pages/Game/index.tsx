@@ -15,7 +15,7 @@ const Game = () => {
     status,
     history,
     hasWinner,
-    nextPlayer,
+    player,
   }, dispatch] = useGame();
 
   function handleSwitchDisplayClick() {
@@ -34,7 +34,7 @@ const Game = () => {
     position: number,
     currentBoard: BoardType,
     winner: boolean,
-    nextPlayerArg: Position,
+    nextPlayer: Position,
   ) {
     if (winner || board[position]) return;
 
@@ -43,7 +43,7 @@ const Game = () => {
       payload: {
         board: currentBoard,
         position,
-        nextPlayer: nextPlayerArg,
+        player: nextPlayer,
       },
     });
   }
@@ -54,9 +54,9 @@ const Game = () => {
       <Panel display={display}>
         <Board
           board={board}
-          nextPlayer={nextPlayer}
+          player={player}
           onSelectPosition={(position) => handleSelectPosition(
-            position, board, hasWinner, nextPlayer,
+            position, board, hasWinner, player,
           )}
         />
         <List

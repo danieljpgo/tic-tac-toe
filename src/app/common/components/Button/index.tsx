@@ -25,7 +25,7 @@ const Button = (props: Props) => {
 
   return (
     <motion.button
-      className={`w-full active:shadow bg-white rounded-lg shadow-md sm:shadow-md disabled:shadow-md  active:outline-none outline-none  focus:outline-none ${elevations[elevation]}`}
+      className={`w-full transition-shadow active:shadow bg-white rounded-lg shadow-md sm:shadow-md disabled:shadow-md active:outline-none outline-none focus:outline-none ${elevations[elevation]} focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50`}
       layout
       whileTap={{
         scale: disabled ? 1 : 0.95,

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Position } from '../../../../../../common/types';
+import type { Position } from '../../../../../../common/types';
 
 const pathVariants = {
   pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.25 : 0.25 }),

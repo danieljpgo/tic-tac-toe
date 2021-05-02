@@ -15,7 +15,7 @@ const initialState: Game = {
 type GameActions =
   | { type: 'RESTART' }
   | { type: 'SELECT_STEP', step: number }
-  | { type: 'SELECT_POSITION', payload: { position: number, board: Board, nextPlayer: Position } };
+  | { type: 'SELECT_POSITION', payload: { position: number, board: Board, player: Position } };
 
 function gameReducer(state: typeof initialState = initialState, action: GameActions) {
   switch (action.type) {
@@ -38,7 +38,7 @@ function gameReducer(state: typeof initialState = initialState, action: GameActi
           ...state.history.slice(0, state.step + 1),
           action.payload.board.map((square, i) => (
             i === action.payload.position
-              ? action.payload.nextPlayer
+              ? action.payload.player
               : square)),
         ],
       };
@@ -53,8 +53,8 @@ const useGame = () => {
 
   const board = history[step];
   const winner = calculateWinner(board);
-  const nextPlayer = calculateNextPlayer(board);
-  const status = calculateStatus(winner, board, nextPlayer);
+  const player = calculateNextPlayer(board);
+  const status = calculateStatus(winner, board, player);
 
   return [{
     step,
@@ -62,7 +62,7 @@ const useGame = () => {
     status,
     history,
     hasWinner: Boolean(winner),
-    nextPlayer,
+    player,
   }, dispatch] as const;
 };
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Position } from '../../../../../../common/types';
+import type { Position } from '../../../../../../common/types';
 
 const radius = 45;
 const circumference = Math.ceil(2 * Math.PI * radius);

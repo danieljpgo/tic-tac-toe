@@ -9,7 +9,7 @@ import Path from './Path';
 interface Props {
   index: number,
   position: PositionType;
-  nextPlayer: Player;
+  player: Player;
   onSelectPosition: () => void;
 }
 
@@ -17,7 +17,7 @@ const Position = (props: Props) => {
   const {
     index,
     position,
-    nextPlayer,
+    player,
     onSelectPosition,
   } = props;
 
@@ -62,7 +62,7 @@ const Position = (props: Props) => {
                 );
               }
               if (position === null) {
-                if (nextPlayer === players.o) {
+                if (player === players.o) {
                   return (
                     <Circle
                       key={`${players.o}-${index}`}
@@ -70,7 +70,7 @@ const Position = (props: Props) => {
                     />
                   );
                 }
-                if (nextPlayer === players.x) {
+                if (player === players.x) {
                   return (
                     <Path
                       key={`${players.x}-${index}`}

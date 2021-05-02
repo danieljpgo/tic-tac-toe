@@ -1,7 +1,7 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import type { History } from '../../../../common/types';
-import { players } from '../../../../common/types';
 import { calculateNextPlayer } from '../../../../common/utils/helpers';
+import { players } from '../../../../common/types';
 import Step from './Step';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const List = (props: Props) => {
   const { history, step, onSelectStep } = props;
-  const currentPlayer = calculateNextPlayer(history[step]) === players.o
+  const player = calculateNextPlayer(history[step]) === players.o
     ? players.x
     : players.o;
 
@@ -42,7 +42,7 @@ const List = (props: Props) => {
           {history.map((_, index) => (
             <Step
               key={index.toString()}
-              player={currentPlayer}
+              player={player}
               current={index === step}
               onSelectStep={() => onSelectStep(index)}
             >

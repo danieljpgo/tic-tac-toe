@@ -3,12 +3,12 @@ import Position from './Position';
 
 interface Props {
   board: BoardType;
-  nextPlayer: Player;
+  player: Player;
   onSelectPosition: (position: number) => void;
 }
 
 const Board = (props: Props) => {
-  const { board, nextPlayer, onSelectPosition } = props;
+  const { board, player, onSelectPosition } = props;
 
   return (
     <div className="grid items-center h-screen sm:pl-2 sm:pt-0 justify-self-center sm:h-auto sm:block">
@@ -21,7 +21,7 @@ const Board = (props: Props) => {
             key={index.toString()}
             index={index}
             position={position}
-            nextPlayer={nextPlayer}
+            player={player}
             onSelectPosition={() => onSelectPosition(index)}
           />
         ))}

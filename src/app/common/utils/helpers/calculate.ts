@@ -1,18 +1,11 @@
 import type { Board, Position, Player } from '../../types';
 import { players } from '../../types';
 
-export function calculateStatus(winner: Position, board: Board, nextPlayer: Player) {
-  const text = {
-    winner: `Winner: ${winner}`,
-    scratch: 'Scratch: Cat\'s game',
-    nextPlayer: `Next Player: ${nextPlayer}`,
-  } as const;
-
-  if (winner) return text.winner;
-
+export function calculateStatus(winner: Position, board: Board, player: Player) {
+  if (winner) return `Winner: ${winner}`;
   return board.every((square) => Boolean(square))
-    ? text.scratch
-    : text.nextPlayer;
+    ? 'Scratch: Cat\'s game'
+    : `Next Player: ${player}`;
 }
 
 export function calculateNextPlayer(board: Board) {
@@ -43,7 +36,7 @@ export function calculateWinner(board: Board) {
       }
       return null;
     })
-    .filter((square) => Boolean(square));
+    .filter(Boolean);
 
   return winner;
 }

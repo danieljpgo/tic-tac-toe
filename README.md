@@ -9,31 +9,28 @@
 <h1 align="left">Tic-Tac-Toe</h1>
 
 <p align="left">
-   <div>
    <a href="https://github.com/danieljpgo">
       <img
-        alt="author"
-        src="https://img.shields.io/badge/author-danieljpgo-9CA3AF?style=flat&labelColor=E5E7EB"
+      alt="author"
+      src="https://img.shields.io/badge/author-danieljpgo-9CA3AF"
       />
    </a>
    <img
       alt="languages"
-      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"
+      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=9CA3AF"
    />
    <a href="https://github.com/danieljpgo/tic-tac-toe/graphs/contributors">
       <img
-        alt="contributors"
-        src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+      alt="contributors"
+      src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=9CA3AF"/>
    </a>
-    <a href="https://github.com/danieljpgo/tic-tac-toe/network/members">
+   <a href="https://github.com/danieljpgo/tic-tac-toe/network/members">
       <img
          alt="forks"
-         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF"/>
    </a>
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
-   </div>
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF">
    <img alt="License" src="./coverage/badge.svg">
-   
 </p>
 
 > Just a tic-tac-toe game. :hash:
