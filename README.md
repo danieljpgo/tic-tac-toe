@@ -6,34 +6,34 @@
       width="150px" />
 </div>
 
-<h1 align="left">Tic-Tac-Toe</h1>
+<h1 align="left">Tic-tac-toe</h1>
 
 <p align="left">
    <a href="https://github.com/danieljpgo">
       <img
       alt="author"
-      src="https://img.shields.io/badge/author-danieljpgo-9CA3AF"
+      src="https://img.shields.io/badge/author-danieljpgo-E5E7EB"
       />
    </a>
    <img
       alt="languages"
-      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=9CA3AF"
+      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=E5E7EB"
    />
    <a href="https://github.com/danieljpgo/tic-tac-toe/graphs/contributors">
       <img
       alt="contributors"
-      src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=9CA3AF"/>
+      src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=E5E7EB"/>
    </a>
    <a href="https://github.com/danieljpgo/tic-tac-toe/network/members">
       <img
          alt="forks"
-         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF"/>
+         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=E5E7EB"/>
    </a>
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF">
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-E5E7EB?style=flat">
    <img alt="License" src="./coverage/badge.svg">
 </p>
 
-> Just a tic-tac-toe game. :hash:
+> A cool tic-tac-toe game. :hash:
 
 &nbsp;
 
@@ -43,6 +43,7 @@
    <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#contributing">Contributing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#license">License</a>
 </p>
 
@@ -55,18 +56,26 @@
 </div>
 
 ## Project
-The project is a tic-tac-toe, where you can play, rewind your steps, restart at any time and everything beautifully animated, besides that, saving your progress, even closing the browser, so you can continue playing whenever you want.
+The project is a tic-tac-toe game that you can play on your phone or desktop.
+
 
 ## Goals
-The goal of this project was to learn the concepts of utility-first CSS and have my first contact with [Tailwind](https://tailwindcss.com/). Besides that, learn even more about [Framer Motion](https://www.framer.com/motion/) and finally, find the best approach to test svgs using accessibility concepts with [Testing Library](https://testing-library.com/).
+The goals of this project were:
+- Learn the concepts of utility-first CSS.
+- Learn best approach to test SVG with accessibility concepts.
+- First contact with [Tailwind](https://tailwindcss.com/).
+- Develop a cool Tic-Tac-Toe.
+- Develop Integration tests with [Testing Library](https://testing-library.com/).
+- Develop SVG animations with [Framer Motion](https://www.framer.com/motion/).
 
 ## Features
-- Tic-tac-toe game.
-- Restart at any time.
-- Rewind each step performed.
-- Saving progress to the browser.
+The main features of the project are:
+- Tic-Tac-Toe.
+- Restart.
+- Rewind steps.
+- Saving progress.
 - All interactions are animated.
-- All stages and interactions are tested.
+- All features tested.
 
 ## Technologies
 The main technologies used to develop the project were:
@@ -96,6 +105,10 @@ yarn install
 // start the application
 yarn start
 ```
+
+## Contributing
+Check out the [contributing page](https://github.com/danieljpgo/tic-tac-toe/blob/master/CONTRIBUTING.md) to see the best places to file issues, start discussions and begin contributing.
+
 
 ## License
 This project is under the [MIT license](https://github.com/danieljpgo/tic-tac-toe/blob/master/LICENSE).
