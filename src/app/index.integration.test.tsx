@@ -209,7 +209,7 @@ test('progress is saved even when reloading the page', () => {
   expect(p1).toHaveTextContent(/x player mark/i);
   expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
 
-  rerender(<App key="new" />);
+  rerender(<App key="reload_page" />);
 
   expect(p1).toHaveTextContent(/x player mark/i);
   expect(screen.getByText(/circle player status/i)).toBeInTheDocument();
@@ -221,7 +221,7 @@ test('only on mobile should display a button to toggle between board and list of
 
   resize({ width: 400 });
 
-  rerender(<App key="new" />);
+  rerender(<App key="new_render" />);
   expect(screen.getByRole('button', { name: /steps/i })).toBeInTheDocument();
 
   userEvent.click(screen.getByRole('button', { name: /steps/i }));

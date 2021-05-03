@@ -29,8 +29,8 @@
          alt="forks"
          src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=E5E7EB"/>
    </a>
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-E5E7EB?style=flat">
-   <img alt="License" src="./coverage/badge.svg">
+   <img alt="license" src="https://img.shields.io/badge/license-MIT-E5E7EB?style=flat">
+   <img alt="test coverage" src="./coverage/badge.svg">
 </p>
 
 > A cool tic-tac-toe game. :hash:
