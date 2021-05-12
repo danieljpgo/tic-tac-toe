@@ -39,8 +39,8 @@ const Position = (props: Props) => {
           animate={position ? 'checked' : 'unchecked'}
         >
           <title id={`${position}-${index}`}>
-            {position === players.o && 'circle player mark'}
-            {position === players.x && 'x player mark'}
+            {position === players.o && 'selected by player circle'}
+            {position === players.x && 'selected by player x'}
             {position === null && 'unmarked'}
           </title>
           <AnimatePresence exitBeforeEnter>

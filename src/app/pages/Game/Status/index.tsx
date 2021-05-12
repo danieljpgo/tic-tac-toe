@@ -34,8 +34,8 @@ const Status = (props: Props) => {
             aria-labelledby={`${label}`}
           >
             <title id={`${label}`}>
-              {label === players.o && 'circle player status'}
-              {label === players.x && 'x player status'}
+              {label === players.o && 'player circle status'}
+              {label === players.x && 'player x status'}
             </title>
             <AnimatePresence exitBeforeEnter>
               {label === players.o ? (

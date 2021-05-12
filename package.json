@@ -36,6 +36,10 @@
     "coverageReporters": [
       "json-summary",
       "text"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx"
     ]
   },
   "eslintConfig": {
