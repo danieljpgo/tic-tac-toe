@@ -6,7 +6,7 @@ import Button from '../../../../../common/components/Button';
 import Circle from './Circle';
 import Path from './Path';
 
-interface Props {
+type Props = {
   index: number,
   position: PositionType;
   player: Player;

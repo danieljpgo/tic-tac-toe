@@ -1,7 +1,7 @@
 import type { Board as BoardType, Player } from '../../../../common/types';
 import Position from './Position';
 
-interface Props {
+type Props = {
   board: BoardType;
   player: Player;
   onSelectPosition: (position: number) => void;

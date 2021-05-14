@@ -7,7 +7,7 @@ const elevations = {
   lg: 'shadow-lg',
 } as const;
 
-interface Props extends Children {
+type Props = Children & {
   type: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   elevation?: keyof typeof elevations;

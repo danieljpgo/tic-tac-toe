@@ -3,7 +3,7 @@ import { useMediaQuery } from '../../../common/utils/hooks';
 import Button from '../../../common/components/Button';
 import Text from '../../../common/components/Text';
 
-interface Props {
+type Props = {
   display: Display;
   onRestartClick: () => void;
   onSwitchDisplayClick: () => void;

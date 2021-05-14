@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Display } from '../../../common/types';
 import { useMediaQuery } from '../../../common/utils/hooks';
 
-interface Props {
+type Props = {
   display: Display;
   children: [React.ReactNode, React.ReactNode];
 }

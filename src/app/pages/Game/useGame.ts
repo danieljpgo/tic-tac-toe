@@ -1,21 +1,21 @@
 import type { Board, History, Position } from '../../common/types';
-import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../common/utils/helpers';
 import { useLocalStorageReducer } from '../../common/utils/hooks';
+import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../common/utils/helpers';
 
-interface Game {
+type Game = {
   history: History;
   step: number;
 }
+
+type GameActions =
+  | { type: 'RESTART' }
+  | { type: 'SELECT_STEP', step: number }
+  | { type: 'SELECT_POSITION', payload: { position: number, board: Board, player: Position }}
 
 const initialState: Game = {
   history: [Array.from({ length: 9 }, () => null)],
   step: 0,
 };
-
-type GameActions =
-  | { type: 'RESTART' }
-  | { type: 'SELECT_STEP', step: number }
-  | { type: 'SELECT_POSITION', payload: { position: number, board: Board, player: Position } };
 
 function gameReducer(state: typeof initialState = initialState, action: GameActions) {
   switch (action.type) {

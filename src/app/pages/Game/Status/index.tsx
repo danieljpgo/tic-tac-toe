@@ -5,7 +5,7 @@ import Text from '../../../common/components/Text';
 const radius = 45;
 const circumference = Math.ceil(2 * Math.PI * radius);
 
-interface Props {
+type Props = {
   children: string
 }
 

@@ -4,7 +4,7 @@ import { calculateNextPlayer } from '../../../../common/utils/helpers';
 import { players } from '../../../../common/types';
 import Step from './Step';
 
-interface Props {
+type Props = {
   history: History;
   step: number;
   onSelectStep: (step: number) => void;

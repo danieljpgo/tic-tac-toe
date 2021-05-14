@@ -6,7 +6,7 @@ const variants = {
   title: 'text-gray-400 text-lg',
 } as const;
 
-interface Props extends Children {
+type Props = Children & {
   variant?: keyof typeof variants;
 }
 

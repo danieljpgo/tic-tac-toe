@@ -10,11 +10,11 @@ const circleVariants = {
   unchecked: { strokeDashoffset: 283 },
 };
 
-interface CircleProps {
+type Props = {
   position: Position,
 }
 
-const Circle = (props: CircleProps) => {
+const Circle = (props: Props) => {
   const { position } = props;
 
   return (

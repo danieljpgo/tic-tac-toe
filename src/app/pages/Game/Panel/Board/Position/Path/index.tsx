@@ -7,7 +7,7 @@ const pathVariants = {
   unchecked: { pathLength: 0 },
 };
 
-interface Props {
+type Props = {
   position: Position,
 }
 
