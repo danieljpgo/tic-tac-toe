@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { players } from '../../../common/types';
-import Text from '../../../common/components/Text';
+import Text from '../../../common/components/Text/Text';
 
 const radius = 45;
 const circumference = Math.ceil(2 * Math.PI * radius);

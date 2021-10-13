@@ -2,7 +2,7 @@ import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { Player, Position as PositionType } from '../../../../../common/types';
 import { players } from '../../../../../common/types';
-import Button from '../../../../../common/components/Button';
+import Button from '../../../../../common/components/Button/Button';
 import Circle from './Circle';
 import Path from './Path';
 

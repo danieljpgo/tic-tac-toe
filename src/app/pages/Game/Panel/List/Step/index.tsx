@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import type { Children, Player } from '../../../../../common/types';
 import { players } from '../../../../../common/types';
-import Button from '../../../../../common/components/Button';
-import Text from '../../../../../common/components/Text';
+import Button from '../../../../../common/components/Button/Button';
+import Text from '../../../../../common/components/Text/Text';
 
 type Props = Children & {
   player: Player;

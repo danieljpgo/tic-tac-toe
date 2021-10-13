@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import type { Children } from '../../types';
 
 const elevations = {
   md: 'shadow-md',
   lg: 'shadow-lg',
 } as const;
 
-type Props = Children & {
+type Props = {
   type: 'button' | 'reset' | 'submit';
   disabled?: boolean;
+  children: string | React.ReactNode;
   elevation?: keyof typeof elevations;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
-const Button = (props: Props) => {
+export default function Button(props: Props) {
   const {
     type = 'button',
     disabled,
@@ -43,6 +43,4 @@ const Button = (props: Props) => {
       {children}
     </motion.button>
   );
-};
-
-export default Button;
+}
