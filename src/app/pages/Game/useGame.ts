@@ -48,7 +48,7 @@ function gameReducer(state: typeof initialState = initialState, action: GameActi
   }
 }
 
-const useGame = () => {
+export function useGame() {
   const [{ step, history }, dispatch] = useLocalStorageReducer('tic-tac-toe:game', gameReducer, initialState);
 
   const board = history[step];
@@ -64,6 +64,4 @@ const useGame = () => {
     hasWinner: Boolean(winner),
     player,
   }, dispatch] as const;
-};
-
-export { useGame };
+}

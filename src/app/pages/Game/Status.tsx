@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { players } from '../../../common/types';
-import Text from '../../../common/components/Text/Text';
+import { players } from '../../common/types';
+import Text from '../../common/components/Text/Text';
 
 const radius = 45;
 const circumference = Math.ceil(2 * Math.PI * radius);
@@ -9,7 +9,7 @@ type Props = {
   children: string
 }
 
-const Status = (props: Props) => {
+export default function Status(props: Props) {
   const { children } = props;
   const [title, label] = children
     .split(':')
@@ -77,6 +77,4 @@ const Status = (props: Props) => {
       </div>
     </div>
   );
-};
-
-export default Status;
+}

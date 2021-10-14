@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const useLocalStorageReducer = <Data extends React.Reducer<any, any>>(
+export function useLocalStorageReducer<Data extends React.Reducer<any, any>>(
   key: string,
   reducer: Data,
   initialState: React.ReducerState<Data>,
@@ -8,7 +8,7 @@ export const useLocalStorageReducer = <Data extends React.Reducer<any, any>>(
     serialize = JSON.stringify,
     deserialize = JSON.parse,
   } = {},
-) => {
+) {
   const [state, dispatch] = React.useReducer(reducer, initialState, () => {
     const init = typeof initialState === 'function' ? initialState() : initialState;
     try {
@@ -31,4 +31,4 @@ export const useLocalStorageReducer = <Data extends React.Reducer<any, any>>(
   }, [key, state, serialize]);
 
   return [state, dispatch] as const;
-};
+}

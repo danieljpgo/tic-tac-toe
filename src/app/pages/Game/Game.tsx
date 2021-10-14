@@ -3,7 +3,7 @@ import type { Display, Position, Board as BoardType } from '../../common/types';
 import { useGame } from './useGame';
 import Actions from './Actions';
 import Status from './Status';
-import Panel from './Panel';
+import Panel from './GamePanel';
 import Board from './Panel/Board';
 import List from './Panel/List';
 

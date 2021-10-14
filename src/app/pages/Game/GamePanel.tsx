@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Display } from '../../../common/types';
-import { useMediaQuery } from '../../../common/utils/hooks';
+import type { Display } from '../../common/types';
+import { useMediaQuery } from '../../common/utils/hooks';
 
 type Props = {
   display: Display;
   children: [React.ReactNode, React.ReactNode];
 }
 
-const Panel = (props: Props) => {
+export default function GamePanel(props: Props) {
   const { display, children } = props;
   const isMobile = useMediaQuery('sm');
 
@@ -62,6 +62,4 @@ const Panel = (props: Props) => {
       </AnimatePresence>
     </motion.div>
   );
-};
-
-export default Panel;
+}

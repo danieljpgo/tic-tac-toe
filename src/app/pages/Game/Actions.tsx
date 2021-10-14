@@ -1,7 +1,7 @@
-import type { Display } from '../../../common/types';
-import { useMediaQuery } from '../../../common/utils/hooks';
-import Button from '../../../common/components/Button/Button';
-import Text from '../../../common/components/Text/Text';
+import type { Display } from '../../common/types';
+import { useMediaQuery } from '../../common/utils/hooks';
+import Button from '../../common/components/Button/Button';
+import Text from '../../common/components/Text/Text';
 
 type Props = {
   display: Display;
@@ -9,7 +9,7 @@ type Props = {
   onSwitchDisplayClick: () => void;
 }
 
-const Actions = (props: Props) => {
+export default function Actions(props: Props) {
   const { display, onRestartClick, onSwitchDisplayClick } = props;
   const isMobile = useMediaQuery('sm');
 
@@ -41,6 +41,4 @@ const Actions = (props: Props) => {
       </div>
     </div>
   );
-};
-
-export default Actions;
+}

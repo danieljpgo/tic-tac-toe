@@ -10,7 +10,7 @@ const breakpoints = {
 
 type Breakpoints = keyof typeof breakpoints;
 
-export const useMediaQuery = (query: Breakpoints) => {
+export function useMediaQuery(query: Breakpoints) {
   const [matches, setMatches] = React.useState(false);
 
   React.useLayoutEffect(() => {
@@ -27,4 +27,4 @@ export const useMediaQuery = (query: Breakpoints) => {
   }, []);
 
   return matches;
-};
+}
