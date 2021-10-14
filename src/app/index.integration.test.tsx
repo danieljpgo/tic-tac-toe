@@ -1,7 +1,7 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import { createMatchMedia, resize } from './common/utils/helpers';
+import { createMatchMedia, resize } from '../lib/test';
 import App from '.';
 
 beforeEach(() => {
