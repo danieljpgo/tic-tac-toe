@@ -1,7 +1,4 @@
-export const players = {
-  x: 'x',
-  o: 'o',
-} as const;
+import { players } from '../constants';
 
 export type Player = typeof players[keyof typeof players]
 

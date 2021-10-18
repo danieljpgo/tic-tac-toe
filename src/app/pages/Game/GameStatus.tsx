@@ -1,31 +1,28 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { players } from '../../common/types';
-import Text from '../../common/components/Text/Text';
-
-const radius = 45;
-const circumference = Math.ceil(2 * Math.PI * radius);
+import { Text } from '../../common/components';
+import { players, radius, circumference } from '../../common/constants';
 
 type Props = {
   children: string
 }
 
-export default function Status(props: Props) {
+export default function GameStatus(props: Props) {
   const { children } = props;
   const [title, label] = children
     .split(':')
     .map((value) => value.trim());
 
-  const labelValid = label === players.x || label === players.o;
+  const validLabel = label === players.x || label === players.o;
 
   return (
     <div className="fixed z-20 w-full px-8 top-8 sm:px-0 sm:top-auto sm:relative">
       <div className="flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md h-14 sm:w-auto">
         <Text variant="title">
-          {labelValid
-            ? (`${title}:`)
-            : (`${children}`)}
+          {validLabel
+            ? `${title}:`
+            : children}
         </Text>
-        {labelValid && (
+        {validLabel && (
         <div className="w-8">
           <motion.svg
             height="100%"

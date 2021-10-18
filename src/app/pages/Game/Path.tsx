@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { Position } from '../../../../../../common/types';
+import type { Position } from '../../common/types';
 
 const pathVariants = {
   pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.25 : 0.25 }),
@@ -11,7 +11,7 @@ type Props = {
   position: Position,
 }
 
-const Path = (props: Props) => {
+export default function Path(props: Props) {
   const { position } = props;
 
   return (
@@ -27,6 +27,4 @@ const Path = (props: Props) => {
       style={{ strokeDashoffset: 1 }}
     />
   );
-};
-
-export default Path;
+}

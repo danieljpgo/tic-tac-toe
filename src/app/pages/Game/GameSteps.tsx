@@ -1,7 +1,7 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
-import type { History } from '../../../../common/types';
-import { calculateNextPlayer } from '../../../../common/utils/helpers';
-import { players } from '../../../../common/types';
+import { players } from '../../common/constants';
+import type { History } from '../../common/types';
+import { calculateNextPlayer } from '../../common/utils/helpers';
 import Step from './Step';
 
 type Props = {

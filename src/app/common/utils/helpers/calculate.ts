@@ -1,5 +1,5 @@
 import type { Board, Position, Player } from '../../types';
-import { players } from '../../types';
+import { players } from '../../constants';
 
 export function calculateStatus(winner: Position, board: Board, player: Player) {
   if (winner) return `Winner: ${winner}`;

@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Display } from '../../common/types';
-import { useMediaQuery } from '../../common/utils/hooks';
+import { useMediaQuery } from '../../common/hooks';
 
 type Props = {
   display: Display;
   children: [React.ReactNode, React.ReactNode];
 }
+
+// @TODO Compound Component
 
 export default function GamePanel(props: Props) {
   const { display, children } = props;

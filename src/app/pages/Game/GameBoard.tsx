@@ -1,13 +1,13 @@
-import type { Board as BoardType, Player } from '../../../../common/types';
-import Position from './Position';
+import type { Board, Player } from '../../common/types';
+import Position from './GameBoardPosition';
 
 type Props = {
-  board: BoardType;
+  board: Board;
   player: Player;
   onSelectPosition: (position: number) => void;
 }
 
-const Board = (props: Props) => {
+export default function GameBoard(props: Props) {
   const { board, player, onSelectPosition } = props;
 
   return (
@@ -28,6 +28,4 @@ const Board = (props: Props) => {
       </ol>
     </div>
   );
-};
-
-export default Board;
+}

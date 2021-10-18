@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { Player, Position as PositionType } from '../../../../../common/types';
-import { players } from '../../../../../common/types';
 import Button from '../../../../../common/components/Button/Button';
-import Circle from './Circle';
-import Path from './Path';
+import Circle from './Circle/Circle';
+import Path from './Path/Path';
+import { players } from '../../../../../common/constants';
 
 type Props = {
   index: number,
@@ -13,7 +13,7 @@ type Props = {
   onSelectPosition: () => void;
 }
 
-const Position = (props: Props) => {
+export default function GameBoardPosition(props: Props) {
   const {
     index,
     position,
@@ -87,6 +87,4 @@ const Position = (props: Props) => {
       </AnimatePresence>
     </Button>
   );
-};
-
-export default Position;
+}

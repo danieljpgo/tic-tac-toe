@@ -1,5 +1,5 @@
 import type { Board, History, Position } from '../../common/types';
-import { useLocalStorageReducer } from '../../common/utils/hooks';
+import { useLocalStorageReducer } from '../../common/hooks';
 import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../common/utils/helpers';
 
 type Game = {
@@ -8,9 +8,9 @@ type Game = {
 }
 
 type GameActions =
-  | { type: 'RESTART' }
-  | { type: 'SELECT_STEP', step: number }
-  | { type: 'SELECT_POSITION', payload: { position: number, board: Board, player: Position }}
+| { type: 'RESTART' }
+| { type: 'SELECT_STEP', step: number }
+| { type: 'SELECT_POSITION', payload: { position: number, board: Board, player: Position }}
 
 const initialState: Game = {
   history: [Array.from({ length: 9 }, () => null)],

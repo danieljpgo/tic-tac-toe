@@ -1,13 +1,13 @@
 import * as React from 'react';
 import type { Display, Position, Board as BoardType } from '../../common/types';
 import { useGame } from './useGame';
-import Actions from './Actions';
-import Status from './Status';
+import Actions from './GameActions';
+import Status from './GameStatus';
 import Panel from './GamePanel';
-import Board from './Panel/Board';
-import List from './Panel/List';
+import Board from './GameBoard';
+import List from './GameSteps';
 
-const Game = () => {
+export default function Game() {
   const [display, setDisplay] = React.useState<Display>('game');
   const [{
     step,
@@ -72,6 +72,4 @@ const Game = () => {
       />
     </div>
   );
-};
-
-export default Game;
+}

@@ -1,7 +1,6 @@
 import type { Display } from '../../common/types';
-import { useMediaQuery } from '../../common/utils/hooks';
-import Button from '../../common/components/Button/Button';
-import Text from '../../common/components/Text/Text';
+import { useMediaQuery } from '../../common/hooks';
+import { Button, Text } from '../../common/components';
 
 type Props = {
   display: Display;
@@ -9,7 +8,7 @@ type Props = {
   onSwitchDisplayClick: () => void;
 }
 
-export default function Actions(props: Props) {
+export default function GameActions(props: Props) {
   const { display, onRestartClick, onSwitchDisplayClick } = props;
   const isMobile = useMediaQuery('sm');
 
