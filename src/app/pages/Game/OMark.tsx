@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion';
 import { radius, circumference } from '../../common/constants';
-import type { Position } from '../../common/types';
 
-type CircleProps = {
-  position: Position,
+type OMarkProps = {
+  checked: boolean,
 }
 
-export default function Circle(props: CircleProps) {
-  const { position } = props;
+export default function OMark(props: OMarkProps) {
+  const { checked } = props;
 
   return (
     <motion.circle
@@ -20,7 +19,7 @@ export default function Circle(props: CircleProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeDasharray={circumference}
-      custom={Boolean(position)}
+      custom={checked}
       variants={{
         pressed: (isChecked: boolean) => ({ strokeDashoffset: isChecked ? 141.5 : 141.5 }),
         checked: { strokeDashoffset: 0 },

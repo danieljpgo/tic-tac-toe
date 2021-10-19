@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Display } from '../../common/types';
 import { useMediaQuery } from '../../common/hooks';
 
-type Props = {
+type GamePanelProps = {
   display: Display;
   children: [React.ReactNode, React.ReactNode];
 }
 
 // @TODO Compound Component
 
-export default function GamePanel(props: Props) {
+export default function GamePanel(props: GamePanelProps) {
   const { display, children } = props;
   const isMobile = useMediaQuery('sm');
 

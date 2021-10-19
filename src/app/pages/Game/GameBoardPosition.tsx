@@ -1,19 +1,18 @@
-import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { Player, Position as PositionType } from '../../../../../common/types';
-import Button from '../../../../../common/components/Button/Button';
-import Circle from './Circle/Circle';
-import Path from './Path/Path';
-import { players } from '../../../../../common/constants';
+import { Button } from '../../common/components';
+import { players } from '../../common/constants';
+import type { Player, Position } from '../../common/types';
+import OMark from './OMark';
+import XMark from './XMark';
 
-type Props = {
+type GameBoardPositionProps = {
   index: number,
-  position: PositionType;
+  position: Position;
   player: Player;
   onSelectPosition: () => void;
 }
 
-export default function GameBoardPosition(props: Props) {
+export default function GameBoardPosition(props: GameBoardPositionProps) {
   const {
     index,
     position,
@@ -47,34 +46,34 @@ export default function GameBoardPosition(props: Props) {
             {(() => {
               if (position === players.o) {
                 return (
-                  <Circle
+                  <OMark
                     key={`${players.o}-${index}`}
-                    position={position}
+                    checked={Boolean(position)}
                   />
                 );
               }
               if (position === players.x) {
                 return (
-                  <Path
+                  <XMark
                     key={`${players.x}-${index}`}
-                    position={position}
+                    checked={Boolean(position)}
                   />
                 );
               }
               if (position === null) {
                 if (player === players.o) {
                   return (
-                    <Circle
+                    <OMark
                       key={`${players.o}-${index}`}
-                      position={position}
+                      checked={Boolean(position)}
                     />
                   );
                 }
                 if (player === players.x) {
                   return (
-                    <Path
+                    <XMark
                       key={`${players.x}-${index}`}
-                      position={position}
+                      checked={Boolean(position)}
                     />
                   );
                 }

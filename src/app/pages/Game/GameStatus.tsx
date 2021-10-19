@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Text } from '../../common/components';
 import { players, radius, circumference } from '../../common/constants';
+import { Text } from '../../common/components';
 
-type Props = {
+type GameStatusProps = {
   children: string
 }
 
-export default function GameStatus(props: Props) {
+export default function GameStatus(props: GameStatusProps) {
   const { children } = props;
   const [title, label] = children
     .split(':')

@@ -1,17 +1,18 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
+import { calculateNextPlayer } from '../../common/utils/helpers';
 import { players } from '../../common/constants';
 import type { History } from '../../common/types';
-import { calculateNextPlayer } from '../../common/utils/helpers';
 import Step from './Step';
 
-type Props = {
+type GameStepsProps = {
   history: History;
   step: number;
   onSelectStep: (step: number) => void;
 }
 
-const List = (props: Props) => {
+export default function GameSteps(props: GameStepsProps) {
   const { history, step, onSelectStep } = props;
+
   const player = calculateNextPlayer(history[step]) === players.o
     ? players.x
     : players.o;
@@ -54,6 +55,4 @@ const List = (props: Props) => {
       </AnimatePresence>
     </AnimateSharedLayout>
   );
-};
-
-export default List;
+}

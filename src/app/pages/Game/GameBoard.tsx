@@ -1,13 +1,13 @@
 import type { Board, Player } from '../../common/types';
 import Position from './GameBoardPosition';
 
-type Props = {
+type GameBoardProps = {
   board: Board;
   player: Player;
   onSelectPosition: (position: number) => void;
 }
 
-export default function GameBoard(props: Props) {
+export default function GameBoard(props: GameBoardProps) {
   const { board, player, onSelectPosition } = props;
 
   return (
