@@ -2,10 +2,12 @@ import type { Board, Position, Player } from '../../types';
 import { players } from '../../constants';
 
 export function calculateStatus(winner: Position, board: Board, player: Player) {
-  if (winner) return `Winner: ${winner}`;
+  if (winner) {
+    return `Winner: ${winner}` as const;
+  }
   return board.every((square) => Boolean(square))
     ? 'Scratch: Cat\'s game'
-    : `Next Player: ${player}`;
+    : `Next Player: ${player}` as const;
 }
 
 export function calculateNextPlayer(board: Board) {
@@ -40,3 +42,21 @@ export function calculateWinner(board: Board) {
 
   return winner;
 }
+
+const array = [
+  { date: '20-11-2021', name: 'item 1' },
+  { date: '20-11-2021', name: 'item 2' },
+  { date: '26-11-2021', name: 'item 3' },
+];
+
+array.reduce((acc, { date, name }) => {
+  if (acc.find((i) => i.date === date)) {
+    return acc.map((i) => (
+      i.date === date
+        ? { ...i, names: [...i.names, name] }
+        : i
+    ));
+  }
+
+  return [...acc, { date, names: [name] }];
+}, []);

@@ -1,9 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button } from '../../common/components';
+import { Button, OMark, XMark } from '../../common/components';
 import { players } from '../../common/constants';
 import type { Player, Position } from '../../common/types';
-import OMark from './OMark';
-import XMark from './XMark';
 
 type GameBoardPositionProps = {
   index: number,

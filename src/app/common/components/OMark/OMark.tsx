@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { radius, circumference } from '../../common/constants';
+import { radius, circumference } from '../../constants';
 
 type OMarkProps = {
   checked: boolean,

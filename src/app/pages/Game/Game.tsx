@@ -1,11 +1,11 @@
 import * as React from 'react';
 import type { Display, Position, Board as BoardType } from '../../common/types';
 import { useGame } from './useGame';
-import Actions from './GameActions';
-import Status from './GameStatus';
-import Panel from './GamePanel';
-import Board from './GameBoard';
-import List from './GameSteps';
+import GameActions from './GameActions';
+import GameStatus from './GameStatus';
+import GamePanel from './GamePanel';
+import GameBoard from './GameBoard';
+import GameSteps from './GameSteps';
 
 export default function Game() {
   const [display, setDisplay] = React.useState<Display>('game');
@@ -50,22 +50,22 @@ export default function Game() {
 
   return (
     <div className="grid gap-4 sm:p-8">
-      <Status>{status}</Status>
-      <Panel display={display}>
-        <Board
+      <GameStatus>{status}</GameStatus>
+      <GamePanel display={display}>
+        <GameBoard
           board={board}
           player={player}
           onSelectPosition={(position) => handleSelectPosition(
             position, board, hasWinner, player,
           )}
         />
-        <List
+        <GameSteps
           step={step}
           history={history}
           onSelectStep={handleSelectStep}
         />
-      </Panel>
-      <Actions
+      </GamePanel>
+      <GameActions
         display={display}
         onRestartClick={handleRestartClick}
         onSwitchDisplayClick={handleSwitchDisplayClick}

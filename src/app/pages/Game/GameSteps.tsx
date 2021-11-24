@@ -2,7 +2,7 @@ import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import { calculateNextPlayer } from '../../common/utils/helpers';
 import { players } from '../../common/constants';
 import type { History } from '../../common/types';
-import Step from './Step';
+import Step from './GameStep';
 
 type GameStepsProps = {
   history: History;
