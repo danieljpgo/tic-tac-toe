@@ -11,7 +11,7 @@ export type Board = Array<Position>;
 
 export type History = Array<Board>;
 
-export function calculateStatus(winner: Position, board: Board, player: Player) {
+export function calculateStatus(winner: Position, board: Board) {
   if (winner) {
     return 'winner';
   }

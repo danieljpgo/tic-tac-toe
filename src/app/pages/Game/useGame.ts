@@ -54,7 +54,7 @@ export function useGame() {
   const board = history[step];
   const winner = calculateWinner(board);
   const player = calculateNextPlayer(board);
-  const status = calculateStatus(winner, board, player);
+  const status = calculateStatus(winner, board);
 
   return [{
     step,

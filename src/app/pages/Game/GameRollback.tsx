@@ -1,15 +1,15 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import type { History } from '../../../lib/tictactoe';
 import { players, calculateNextPlayer } from '../../../lib/tictactoe';
-import Step from './GameStep';
+import GameRollbackStep from './GameRollbackStep';
 
-type GameStepsProps = {
+type GameRollbackProps = {
   history: History;
   step: number;
   onSelectStep: (step: number) => void;
 }
 
-export default function GameSteps(props: GameStepsProps) {
+export default function GameRollback(props: GameRollbackProps) {
   const { history, step, onSelectStep } = props;
 
   const player = calculateNextPlayer(history[step]) === players.o
@@ -40,14 +40,14 @@ export default function GameSteps(props: GameStepsProps) {
           exit="out"
         >
           {history.map((_, index) => (
-            <Step
+            <GameRollbackStep
               key={index.toString()}
               player={player}
               current={index === step}
               onSelectStep={() => onSelectStep(index)}
             >
               {`${index === 0 ? 'Go to game start' : `Go to move #${index} `} ${index === step ? '*' : ''}`}
-            </Step>
+            </GameRollbackStep>
           ))}
         </motion.ol>
       </AnimatePresence>

@@ -8,8 +8,6 @@ type GamePanelProps = {
   children: [React.ReactNode, React.ReactNode];
 }
 
-// @TODO Compound Component
-
 export default function GamePanel(props: GamePanelProps) {
   const { display, children } = props;
   const isMobile = useMediaQuery('sm');

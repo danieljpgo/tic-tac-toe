@@ -4,14 +4,14 @@ import { players } from '../../../lib/tictactoe';
 import Button from '../../common/components/Button/Button';
 import Text from '../../common/components/Text/Text';
 
-type Props = {
+type GameRollbackStepProps = {
   children: string;
   player: Player;
   current: boolean;
   onSelectStep: () => void;
 }
 
-const Step = (props: Props) => {
+export default function GameRollbackStep(props: GameRollbackStepProps) {
   const {
     player,
     current,
@@ -98,6 +98,4 @@ const Step = (props: Props) => {
       </motion.div>
     </motion.li>
   );
-};
-
-export default Step;
+}

@@ -2,11 +2,11 @@ import * as React from 'react';
 import type { Position, Board as BoardType } from '../../../lib/tictactoe';
 import type { Display } from '../../common/types/display';
 import { useGame } from './useGame';
-import GameActions from './GameActions';
-import GameStatus from './GameStatus';
-import GamePanel from './GamePanel';
 import GameBoard from './GameBoard';
-import GameSteps from './GameSteps';
+import GamePanel from './GamePanel';
+import GameStatus from './GameStatus';
+import GameActions from './GameActions';
+import GameRollback from './GameRollback';
 
 export default function Game() {
   const [display, setDisplay] = React.useState<Display>('game');
@@ -64,7 +64,7 @@ export default function Game() {
             position, board, Boolean(winner), player,
           )}
         />
-        <GameSteps
+        <GameRollback
           step={step}
           history={history}
           onSelectStep={handleSelectStep}

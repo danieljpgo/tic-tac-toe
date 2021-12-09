@@ -1,5 +1,5 @@
 import type { Board, Player } from '../../../lib/tictactoe';
-import Position from './GameBoardPosition';
+import GameBoardPosition from './GameBoardPosition';
 
 type GameBoardProps = {
   board: Board;
@@ -17,7 +17,7 @@ export default function GameBoard(props: GameBoardProps) {
         aria-label="tic-tac-toe-board"
       >
         {board.map((position, index) => (
-          <Position
+          <GameBoardPosition
             key={index.toString()}
             index={index}
             position={position}
