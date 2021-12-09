@@ -61,7 +61,7 @@ export function useGame() {
     board,
     status,
     history,
-    hasWinner: Boolean(winner),
+    winner,
     player,
   }, dispatch] as const;
 }

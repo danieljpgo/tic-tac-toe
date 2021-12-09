@@ -15,7 +15,7 @@ export default function Game() {
     board,
     status,
     history,
-    hasWinner,
+    winner,
     player,
   }, dispatch] = useGame();
 
@@ -34,10 +34,10 @@ export default function Game() {
   function handleSelectPosition(
     position: number,
     currentBoard: BoardType,
-    winner: boolean,
+    hasWinner: boolean,
     nextPlayer: Position,
   ) {
-    if (winner || board[position]) return;
+    if (hasWinner || board[position]) return;
 
     dispatch({
       type: 'SELECT_POSITION',
@@ -51,13 +51,17 @@ export default function Game() {
 
   return (
     <div className="grid gap-4 sm:p-8">
-      <GameStatus>{status}</GameStatus>
+      <GameStatus
+        status={status}
+        player={player}
+        winner={winner}
+      />
       <GamePanel display={display}>
         <GameBoard
           board={board}
           player={player}
           onSelectPosition={(position) => handleSelectPosition(
-            position, board, hasWinner, player,
+            position, board, Boolean(winner), player,
           )}
         />
         <GameSteps

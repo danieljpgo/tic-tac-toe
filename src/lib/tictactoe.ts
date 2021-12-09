@@ -13,12 +13,12 @@ export type History = Array<Board>;
 
 export function calculateStatus(winner: Position, board: Board, player: Player) {
   if (winner) {
-    return `Winner: ${winner}` as const;
+    return 'winner';
   }
   if (board.every(Boolean)) {
-    return "Scratch: Cat's game";
+    return 'draw';
   }
-  return `Next Player: ${player}` as const;
+  return 'next';
 }
 
 export function calculateNextPlayer(board: Board) : Player {
