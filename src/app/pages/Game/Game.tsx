@@ -1,5 +1,6 @@
 import * as React from 'react';
-import type { Display, Position, Board as BoardType } from '../../common/types';
+import type { Position, Board as BoardType } from '../../../lib/tictactoe';
+import type { Display } from '../../common/types/display';
 import { useGame } from './useGame';
 import GameActions from './GameActions';
 import GameStatus from './GameStatus';

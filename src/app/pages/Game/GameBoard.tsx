@@ -1,4 +1,4 @@
-import type { Board, Player } from '../../common/types';
+import type { Board, Player } from '../../../lib/tictactoe';
 import Position from './GameBoardPosition';
 
 type GameBoardProps = {

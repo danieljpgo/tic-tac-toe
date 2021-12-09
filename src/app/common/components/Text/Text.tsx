@@ -12,7 +12,9 @@ type Props = {
 export default function Text(props: Props) {
   const { children, variant = 'base' } = props;
 
-  return (
-    <p className={`${variants[variant]}`}>{children}</p>
-  );
+  if (variant === 'title') {
+    return <h2 className={`${variants.title}`}>{children}</h2>;
+  }
+
+  return <p className={`${variants[variant]}`}>{children}</p>;
 }

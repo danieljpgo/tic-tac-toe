@@ -1,6 +1,6 @@
-import type { Board, History, Position } from '../../common/types';
+import type { Board, History, Position } from '../../../lib/tictactoe';
+import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../../lib/tictactoe';
 import { useLocalStorageReducer } from '../../common/hooks';
-import { calculateNextPlayer, calculateStatus, calculateWinner } from '../../common/utils/helpers';
 
 type Game = {
   history: History;

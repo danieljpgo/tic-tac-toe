@@ -1,7 +1,6 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
-import { calculateNextPlayer } from '../../common/utils/helpers';
-import { players } from '../../common/constants';
-import type { History } from '../../common/types';
+import type { History } from '../../../lib/tictactoe';
+import { players, calculateNextPlayer } from '../../../lib/tictactoe';
 import Step from './GameStep';
 
 type GameStepsProps = {
@@ -47,8 +46,7 @@ export default function GameSteps(props: GameStepsProps) {
               current={index === step}
               onSelectStep={() => onSelectStep(index)}
             >
-              {index === 0 ? 'Go to game start' : `Go to move #${index} `}
-              {index === step && '*'}
+              {`${index === 0 ? 'Go to game start' : `Go to move #${index} `} ${index === step ? '*' : ''}`}
             </Step>
           ))}
         </motion.ol>

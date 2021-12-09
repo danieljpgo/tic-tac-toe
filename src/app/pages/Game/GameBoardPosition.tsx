@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import type { Player, Position } from '../../../lib/tictactoe';
 import { Button, OMark, XMark } from '../../common/components';
-import { players } from '../../common/constants';
-import type { Player, Position } from '../../common/types';
+import { players } from '../../../lib/tictactoe';
 
 type GameBoardPositionProps = {
   index: number,
